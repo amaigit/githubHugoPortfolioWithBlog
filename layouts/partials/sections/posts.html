@@ -12,7 +12,17 @@
           {{ end }}
           <div class="card-body">
             <h5 class="card-title">{{ .Title }}</h5>
+<<<<<<< HEAD
             <p class="card-text">{{ .Params.summary | default (truncate (.Plain | plainify) 120) }}</p>
+=======
+            <p class="card-text">
+              {{ with .Params.summary }}
+                {{ . }}
+              {{ else }}
+                Nessun riassunto disponibile
+              {{ end }}
+            </p>
+>>>>>>> 39369ae (Fix posts.html: mostra solo summary se esiste, senza truncate su .Plain (evita errori Hugo))
             <p class="card-meta small text-muted mb-2">{{ .Date.Format "02/01/2006" }} | {{ delimit .Params.tags ", " }}</p>
             <a href="{{ .RelPermalink }}" class="btn btn-primary btn-sm">Leggi</a>
           </div>
