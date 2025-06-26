@@ -9,7 +9,13 @@
         <div class="card h-100">
           <div class="card-body">
             <h5 class="card-title">{{ .title }}</h5>
-            <p class="card-text">{{ .summary | default (truncate (.summary | plainify) 120) }}</p>
+            <p class="card-text">
+              {{ with .summary }}
+                {{ . }}
+              {{ else }}
+                Nessun riassunto disponibile
+              {{ end }}
+            </p>
             <p class="card-meta small text-muted mb-2">{{ .date }} | {{ delimit .tags ", " }}</p>
             {{ with .file }}
             <a href="/{{ . }}" class="btn btn-primary btn-sm" target="_blank">Apri nota</a>

@@ -10,7 +10,13 @@
           {{ with .image }}<img src="/{{ . }}" class="card-img-top" alt="Anteprima progetto">{{ end }}
           <div class="card-body">
             <h5 class="card-title">{{ .name }}</h5>
-            <p class="card-text">{{ .summary | default (truncate (.summary | plainify) 120) }}</p>
+            <p class="card-text">
+              {{ with .summary }}
+                {{ . }}
+              {{ else }}
+                Nessun riassunto disponibile
+              {{ end }}
+            </p>
             <a href="{{ .url }}" class="btn btn-primary btn-sm" target="_blank">Dettagli</a>
           </div>
         </div>
