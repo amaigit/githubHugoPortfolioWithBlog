@@ -584,7 +584,26 @@ home = [&amp;ldquo;HTML&amp;rdquo;, &amp;ldquo;JSON&amp;rdquo;]
 &lt;li>10.000+ transazioni processate&lt;/li>
 &lt;li>Tempo di caricamento &amp;lt;2 secondi&lt;/li>
 &lt;li>99.9% uptime in produzione&lt;/li>
-&lt;/ul></description></item><item><title/><link>https://amaigit.github.io/githubHugoPortfolioWithBlog/experiences/startup/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>andrea.morosati@example.com (Andrea Morosati)</author><guid>https://amaigit.github.io/githubHugoPortfolioWithBlog/experiences/startup/</guid><description/></item><item><title/><link>https://amaigit.github.io/githubHugoPortfolioWithBlog/experiences/tech-company/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>andrea.morosati@example.com (Andrea Morosati)</author><guid>https://amaigit.github.io/githubHugoPortfolioWithBlog/experiences/tech-company/</guid><description>&lt;h2 id="responsabilità-principali">Responsabilità Principali&lt;/h2>
+&lt;/ul></description></item><item><title/><link>https://amaigit.github.io/githubHugoPortfolioWithBlog/experiences/startup/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>andrea.morosati@example.com (Andrea Morosati)</author><guid>https://amaigit.github.io/githubHugoPortfolioWithBlog/experiences/startup/</guid><description>&lt;h2 id="responsabilità-principali">Responsabilità Principali&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Sviluppo Frontend&lt;/strong>: Realizzazione di dashboard interattive in React e TypeScript&lt;/li>
+&lt;li>&lt;strong>API Design&lt;/strong>: Progettazione e sviluppo di API RESTful in Node.js&lt;/li>
+&lt;li>&lt;strong>DevOps&lt;/strong>: Gestione pipeline CI/CD su GitHub Actions&lt;/li>
+&lt;li>&lt;strong>Cloud&lt;/strong>: Deploy di microservizi su Google Cloud con Docker&lt;/li>
+&lt;li>&lt;strong>Team Collaboration&lt;/strong>: Lavoro in team Agile, partecipazione a sprint e code review&lt;/li>
+&lt;/ul>
+&lt;h2 id="tecnologie-utilizzate">Tecnologie Utilizzate&lt;/h2>
+&lt;ul>
+&lt;li>React, TypeScript, Node.js, Express&lt;/li>
+&lt;li>Docker, Google Cloud, MongoDB&lt;/li>
+&lt;li>GitHub Actions, Jira&lt;/li>
+&lt;/ul>
+&lt;h2 id="risultati-raggiunti">Risultati Raggiunti&lt;/h2>
+&lt;ul>
+&lt;li>Sviluppo e rilascio di 3 MVP in meno di 6 mesi&lt;/li>
+&lt;li>Incremento del 50% della soddisfazione utente tramite nuove funzionalità&lt;/li>
+&lt;li>Riduzione del 30% dei bug in produzione grazie a test automatizzati&lt;/li>
+&lt;/ul></description></item><item><title/><link>https://amaigit.github.io/githubHugoPortfolioWithBlog/experiences/tech-company/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>andrea.morosati@example.com (Andrea Morosati)</author><guid>https://amaigit.github.io/githubHugoPortfolioWithBlog/experiences/tech-company/</guid><description>&lt;h2 id="responsabilità-principali">Responsabilità Principali&lt;/h2>
 &lt;ul>
 &lt;li>&lt;strong>Sviluppo Backend&lt;/strong>: Progettazione e implementazione di microservizi in Go per l&amp;rsquo;API principale dell&amp;rsquo;azienda&lt;/li>
 &lt;li>&lt;strong>Architettura Cloud&lt;/strong>: Migrazione di servizi legacy su AWS utilizzando ECS e RDS&lt;/li>
