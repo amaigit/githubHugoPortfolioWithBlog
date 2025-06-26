@@ -33,11 +33,19 @@ jobs:
       - name: Get Hugo Modules
         run: hugo mod get
 
-      # Step 5: Compila il sito ottimizzando i file
+      # Step 5: Genera package.json con le dipendenze JS/CSS del tema
+      - name: Generate npm dependencies
+        run: hugo mod npm pack
+
+      # Step 6: Installa le dipendenze npm
+      - name: Install npm dependencies
+        run: npm install
+
+      # Step 7: Compila il sito ottimizzando i file
       - name: Build
         run: hugo --minify
 
-      # Step 6: Pubblica i file compilati su GitHub Pages
+      # Step 8: Pubblica i file compilati su GitHub Pages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
