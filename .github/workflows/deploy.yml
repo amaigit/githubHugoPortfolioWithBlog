@@ -1,0 +1,41 @@
+name: Deploy to GitHub Pages
+
+on:
+  # Si attiva ad ogni push (commit) sul branch 'main'
+  push:
+    branches:
+      - main
+  # Permette di avviare il workflow manualmente
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Autorizzazione per scrivere sul branch gh-pages
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      # Step 1: Scarica il codice del tuo repository
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0    # Scarica l'intera history di Git
+
+      # Step 2: Configura l'ambiente Hugo
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true # Installa la versione Extended, necessaria per Toha
+
+      # Step 3: Compila il sito ottimizzando i file
+      - name: Build
+        run: hugo --minify
+
+      # Step 4: Pubblica i file compilati su GitHub Pages
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages # Branch di destinazione per il deploy 

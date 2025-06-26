@@ -1,0 +1,106 @@
+baseURL: "https://amaigit.github.io/githubHugoPortfolioWithBlog/"
+languageCode: "it-it"
+title: "Portfolio di Andrea Morosati"
+theme: "toha"
+
+# Configurazione autore e informazioni personali
+params:
+  author:
+    name: "Andrea Morosati"
+    headline: "Sviluppatore Software Full-Stack"
+    image: "img/author.jpg"
+    bio: "Sviluppatore appassionato di tecnologie moderne e soluzioni innovative"
+    location: "Italia"
+    email: "andrea.morosati@example.com"
+
+  # Social links
+  social:
+    - name: github
+      icon: "fab fa-github"
+      link: "https://github.com/amaigit"
+    - name: linkedin
+      icon: "fab fa-linkedin"
+      link: "https://linkedin.com/in/andrea-morosati"
+    - name: twitter
+      icon: "fab fa-twitter"
+      link: "https://twitter.com/andreamorosati"
+
+  # Sezioni del sito
+  sections:
+    - id: "about"
+      name: "Chi Sono"
+      template: "sections/about.html"
+      enable: true
+      weight: 1
+    - id: "skills"
+      name: "Competenze"
+      template: "sections/skills.html"
+      enable: true
+      weight: 2
+    - id: "experiences"
+      name: "Esperienze"
+      template: "sections/experiences.html"
+      enable: true
+      weight: 3
+    - id: "projects"
+      name: "Progetti"
+      template: "sections/projects.html"
+      enable: true
+      weight: 4
+    - id: "posts"
+      name: "Blog"
+      template: "sections/posts.html"
+      enable: true
+      weight: 5
+
+  # Configurazione tema
+  defaultTheme: "auto"
+  gitRepo: "https://github.com/amaigit/githubHugoPortfolioWithBlog"
+  
+  # SEO
+  description: "Portfolio professionale e blog tecnico di Andrea Morosati - Sviluppatore Full-Stack"
+  keywords: ["portfolio", "blog", "sviluppatore", "full-stack", "hugo", "toha"]
+  
+  # Footer
+  footer:
+    enable: true
+    customText: "Sviluppato con ❤️ usando Hugo e Toha"
+
+# Configurazione menu
+menu:
+  main:
+    - identifier: "about"
+      name: "Chi Sono"
+      url: "#about"
+      weight: 1
+    - identifier: "skills"
+      name: "Competenze"
+      url: "#skills"
+      weight: 2
+    - identifier: "experiences"
+      name: "Esperienze"
+      url: "#experiences"
+      weight: 3
+    - identifier: "projects"
+      name: "Progetti"
+      url: "#projects"
+      weight: 4
+    - identifier: "posts"
+      name: "Blog"
+      url: "#posts"
+      weight: 5
+
+# Configurazione taxonomie
+taxonomies:
+  tag: "tags"
+  category: "categories"
+
+# Configurazione permalink
+permalinks:
+  posts: "/blog/:year/:month/:title/"
+  projects: "/projects/:title/"
+
+# Configurazione build
+buildDrafts: false
+buildFuture: false
+buildExpired: false 
