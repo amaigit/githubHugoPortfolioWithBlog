@@ -1,30 +1,36 @@
-{{ $skills := .skills | default .section.skills }}
-{{ with .section }}
-  <h2 class="section-title">{{ .name | default "Competenze" }}</h2>
-{{ else }}
-  <h2 class="section-title">Competenze</h2>
-{{ end }}
+{{/* DEBUG: stampa il contesto ricevuto */}}
+{{/* {{ printf "%#v" . }} */}}
+{{- $skills := .skills | default .section.skills | default . -}}
+{{- if (isArray $skills) -}}
 <section id="skills" class="section section-skills">
   <div class="container">
+    <h2 class="section-title">
+      {{ with .section }}{{ .name | default "Competenze" }}{{ else }}Competenze{{ end }}
+    </h2>
     <div class="row">
       {{ range $skills }}
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card h-100 text-center">
-          <div class="card-body">
-            {{ if .icon }}
-              <img src="/{{ .icon }}" alt="{{ .name }}" class="mb-2" style="height:48px;">
-              <h5 class="card-title">{{ .name }}</h5>
-              <p class="card-text">Livello: {{ .level }}</p>
-            {{ else }}
-              {{ with .logo }}<img src="/{{ . }}" alt="{{ .name }}" class="mb-2" style="height:48px;">{{ end }}
-              <h5 class="card-title">{{ .name }}</h5>
-              <p class="card-text">{{ .summary }}</p>
-              <div class="small text-muted">{{ delimit .tags ", " }}</div>
-            {{ end }}
+        {{ if (isset . "name") }}
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card h-100 text-center">
+            <div class="card-body">
+              {{ if .icon }}
+                <img src="/{{ .icon }}" alt="{{ .name }}" class="mb-2" style="height:48px;">
+                <h5 class="card-title">{{ .name }}</h5>
+                <p class="card-text">Livello: {{ .level }}</p>
+              {{ else }}
+                {{ with .logo }}<img src="/{{ . }}" alt="{{ .name }}" class="mb-2" style="height:48px;">{{ end }}
+                <h5 class="card-title">{{ .name }}</h5>
+                <p class="card-text">{{ .summary }}</p>
+                <div class="small text-muted">{{ delimit .tags ", " }}</div>
+              {{ end }}
+            </div>
           </div>
         </div>
-      </div>
+        {{ end }}
       {{ end }}
     </div>
   </div>
-</section> 
+</section>
+{{- else -}}
+<div class="alert alert-danger">Errore: il contesto passato a skills.html non è una lista! ({{ printf "%T" $skills }})</div>
+{{- end -}} 
