@@ -9,6 +9,7 @@ projects:
   - name: "E-Commerce Platform"
     image: images/projects/ecommerce-preview.png
     tech: ["React", "Node.js", "PostgreSQL", "Redis", "Docker"]
+    tags: ["web", "ecommerce", "react", "cloud"]
     summary: >-
       Piattaforma e-commerce completa con gestione prodotti, carrello, pagamenti e dashboard admin. Architettura moderna e scalabile.
     buttons:
@@ -24,6 +25,7 @@ projects:
   - name: "CLI Tool"
     image: ""
     tech: ["Go", "Cobra"]
+    tags: ["cli", "automation", "go"]
     summary: >-
       Strumento a riga di comando per automatizzare task di sviluppo e deployment.
     buttons:
