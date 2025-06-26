@@ -103,4 +103,11 @@ permalinks:
 # Configurazione build
 buildDrafts: false
 buildFuture: false
-buildExpired: false 
+buildExpired: false
+
+defaultContentLanguage: it
+languages:
+  it:
+    languageName: Italiano
+    weight: 1
+    contentDir: content 
