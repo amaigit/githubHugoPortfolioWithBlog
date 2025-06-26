@@ -52,6 +52,11 @@ params:
       template: "sections/posts.html"
       enable: true
       weight: 5
+    - id: "notes"
+      name: "Note"
+      template: "sections/notes.html"
+      enable: true
+      weight: 6
 
   # Configurazione tema
   defaultTheme: "auto"
@@ -89,6 +94,10 @@ menu:
       name: "Blog"
       url: "#posts"
       weight: 5
+    - identifier: "notes"
+      name: "Note"
+      url: "#notes"
+      weight: 6
 
 # Configurazione taxonomie
 taxonomies:

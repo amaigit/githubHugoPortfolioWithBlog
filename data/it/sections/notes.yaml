@@ -1,0 +1,20 @@
+section:
+  name: Note
+  id: notes
+  enable: true
+  weight: 6
+  showOnNavbar: true
+  template: sections/notes.html
+notes:
+  - title: "Comandi Git utili"
+    date: 2024-06-26
+    tags: ["git", "cli", "workflow"]
+    summary: >-
+      Alcuni comandi git che uso spesso per velocizzare il lavoro.
+    file: notes/git-cheatsheet.md
+  - title: "Snippet Python per API"
+    date: 2024-06-26
+    tags: ["python", "api", "snippet"]
+    summary: >-
+      Esempio di chiamata API REST in Python con requests.
+    file: notes/python-api-snippet.md 
