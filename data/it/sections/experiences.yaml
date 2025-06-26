@@ -10,15 +10,17 @@ experiences:
       name: "Innovate Startup"
       logo: images/experiences/innovate-logo.png
       url: ""
-    position: "Full-Stack Developer"
-    period: "Marzo 2021 - Dicembre 2022"
-    summary: >-
-      Sviluppo frontend in React, API RESTful in Node.js, DevOps su GitHub Actions, deploy su Google Cloud con Docker. Lavoro in team Agile.
+    positions:
+      - title: "Full-Stack Developer"
+        period: "Marzo 2021 - Dicembre 2022"
+        summary: >-
+          Sviluppo frontend in React, API RESTful in Node.js, DevOps su GitHub Actions, deploy su Google Cloud con Docker. Lavoro in team Agile.
   - company:
       name: "TechCorp S.p.A."
       logo: images/experiences/techcorp-logo.png
       url: ""
-    position: "Senior Software Engineer"
-    period: "Gennaio 2023 - Presente"
-    summary: >-
-      Progettazione microservizi Go, migrazione su AWS, ottimizzazione performance, mentoring, DevOps CI/CD con Terraform. 
+    positions:
+      - title: "Senior Software Engineer"
+        period: "Gennaio 2023 - Presente"
+        summary: >-
+          Progettazione microservizi Go, migrazione su AWS, ottimizzazione performance, mentoring, DevOps CI/CD con Terraform. 
