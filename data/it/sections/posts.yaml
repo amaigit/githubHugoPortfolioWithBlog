@@ -1,0 +1,7 @@
+section:
+  name: Blog
+  id: posts
+  enable: true
+  weight: 5
+  showOnNavbar: true
+  template: sections/posts.html 
