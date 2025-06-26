@@ -12,7 +12,7 @@
           {{ end }}
           <div class="card-body">
             <h5 class="card-title">{{ .Title }}</h5>
-            <p class="card-text">{{ .Params.summary | default (truncate .Plain 120) }}</p>
+            <p class="card-text">{{ .Params.summary | default (truncate (.Plain | plainify) 120) }}</p>
             <p class="card-meta small text-muted mb-2">{{ .Date.Format "02/01/2006" }} | {{ delimit .Params.tags ", " }}</p>
             <a href="{{ .RelPermalink }}" class="btn btn-primary btn-sm">Leggi</a>
           </div>

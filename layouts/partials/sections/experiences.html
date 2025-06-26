@@ -9,7 +9,7 @@
         <div class="card h-100">
           <div class="card-body">
             <h5 class="card-title">{{ .role }} @ {{ .company }}</h5>
-            <p class="card-text">{{ .description }}</p>
+            <p class="card-text">{{ .description | default (truncate (.description | plainify) 120) }}</p>
             <p class="card-meta small text-muted mb-2">{{ .start }} - {{ .end | default "Presente" }}</p>
           </div>
         </div>
