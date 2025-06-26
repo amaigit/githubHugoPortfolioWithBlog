@@ -1,0 +1,66 @@
+section:
+  name: Progetti
+  id: projects
+  enable: true
+  weight: 4
+  showOnNavbar: true
+  template: sections/projects.html
+projects:
+  - name: CLI Tool
+    summary: Strumento da linea di comando per la gestione di deployment cloud.
+    image: img/projects/cli-tool-preview.png
+    url: https://github.com/hugo/cli-tool
+  - name: E-commerce Platform
+    summary: Piattaforma e-commerce scalabile con microservizi e frontend React.
+    image: img/projects/ecommerce-preview.png
+    url: https://github.com/hugo/ecommerce
+  - name: "CLI Tool"
+    image: img/projects/cli-tool-preview.png
+    tech: ["Go", "Cobra"]
+    tags: ["cli", "automation", "go"]
+    summary: >-
+      Strumento a riga di comando per automatizzare task di sviluppo e deployment.
+    buttons:
+      - name: GitHub
+        icon: "fab fa-github"
+        url: "https://github.com/amaigit/cli-tool"
+  - name: "githubHugoPortfolioWithBlog"
+    image: img/projects/cli-tool-preview.png
+    tech: ["Hugo", "Go", "Toha", "GitHub Actions"]
+    tags: ["portfolio", "blog", "static site", "hugo", "toha"]
+    summary: >-
+      Portfolio e blog statico generato con Hugo e tema Toha, CI/CD su GitHub Pages, contenuti multilingua e personalizzazione avanzata.
+    buttons:
+      - name: GitHub
+        icon: "fab fa-github"
+        url: "https://github.com/amaigit/githubHugoPortfolioWithBlog"
+  - name: "boxboard"
+    image: img/projects/ecommerce-preview.png
+    tech: ["Python", "Streamlit", "API", "Crypto"]
+    tags: ["dashboard", "crypto", "streamlit", "exchange"]
+    summary: >-
+      Dashboard multi-exchange per criptovalute, monitoraggio in tempo reale e analisi dei dati da diversi exchange.
+    buttons:
+      - name: GitHub
+        icon: "fab fa-github"
+        url: "https://github.com/amaigit/boxboard"
+  - name: "streamlit-multiexchanges-dashboard"
+    image: img/projects/cli-tool-preview.png
+    tech: ["Python", "Streamlit", "API"]
+    tags: ["dashboard", "streamlit", "crypto"]
+    summary: >-
+      Dashboard Streamlit per il monitoraggio di più exchange di criptovalute, con grafici e statistiche live.
+    buttons:
+      - name: GitHub
+        icon: "fab fa-github"
+        url: "https://github.com/amaigit/streamlit-multiexchanges-dashboard"
+  - name: "gemini-vision-processor"
+    image: img/projects/ecommerce-preview.png
+    tech: ["TypeScript", "React", "aiStudio"]
+    tags: ["ai", "react", "template", "vision"]
+    summary: >-
+      Template app base di aiStudio con React, per progetti di visione artificiale e AI.
+    buttons:
+      - name: GitHub
+        icon: "fab fa-github"
+        url: "https://github.com/amaigit/gemini-vision-processor" 

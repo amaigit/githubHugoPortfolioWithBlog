@@ -1,0 +1,41 @@
+section:
+  name: Esperienze
+  id: experiences
+  enable: true
+  weight: 2
+  showOnNavbar: true
+  template: sections/experiences.html
+experiences:
+  - role: Senior Backend Developer
+    company: Innovatech
+    description: Sviluppo microservizi in Go e architetture cloud-native per clienti enterprise.
+    start: 2022
+    end: Presente
+  - role: Full Stack Developer
+    company: TechCorp
+    description: Realizzazione di applicazioni web con React e Node.js, CI/CD e DevOps.
+    start: 2020
+    end: 2022
+  - company:
+      name: "Open Source Community"
+      logo: img/experiences/innovate-logo.png
+      url: "https://github.com/amaigit"
+    positions:
+      - designation: "Maintainer & Contributor"
+        start: "2020"
+        end: "Presente"
+        responsibilities:
+          - "Sviluppo e manutenzione di progetti open source su GitHub."
+          - "Automazione workflow CI/CD, integrazione API, documentazione."
+          - "Mentoring e supporto alla community."
+  - company:
+      name: "Progetti personali e freelance"
+      logo: img/experiences/techcorp-logo.png
+      url: "https://github.com/amaigit"
+    positions:
+      - designation: "Full-Stack Developer"
+        start: "2017"
+        end: "2020"
+        responsibilities:
+          - "Sviluppo di dashboard, tool CLI, automazioni e web app."
+          - "Esperimenti con AI, scraping, data analysis e automazione." 

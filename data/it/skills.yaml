@@ -1,0 +1,42 @@
+section:
+  name: Competenze
+  id: skills
+  enable: true
+  weight: 3
+  showOnNavbar: true
+  template: sections/skills.html
+skills:
+  - name: Docker
+    logo: img/skills/docker.svg
+    tags: ["devops", "container", "cloud"]
+    summary: >-
+      Containerizzazione e automazione dei deployment con Docker, fondamentale per workflow CI/CD e sviluppo moderno.
+  - name: Go (Golang)
+    logo: img/skills/go.svg
+    tags: ["backend", "performance", "concurrency"]
+    summary: >-
+      Sviluppo di servizi backend, CLI tool e microservizi performanti con Go.
+  - name: React
+    logo: img/skills/react.svg
+    tags: ["frontend", "ui", "javascript"]
+    summary: >-
+      Sviluppo di interfacce moderne e dashboard interattive con React.
+  - name: GitHub Actions
+    logo: img/skills/docker.svg
+    tags: ["automation", "ci/cd", "devops"]
+    summary: >-
+      Automazione di build, test e deploy tramite workflow GitHub Actions.
+  - name: Streamlit
+    logo: img/skills/docker.svg
+    tags: ["dashboard", "python", "data"]
+    summary: >-
+      Creazione di dashboard e web app data-driven in Python con Streamlit.
+  - name: Go
+    icon: img/skills/go.svg
+    level: Avanzato
+  - name: React
+    icon: img/skills/react.svg
+    level: Avanzato
+  - name: Docker
+    icon: img/skills/docker.svg
+    level: Intermedio 
