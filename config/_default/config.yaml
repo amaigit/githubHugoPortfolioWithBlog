@@ -1,17 +1,17 @@
 baseURL: "https://amaigit.github.io/githubHugoPortfolioWithBlog/"
 languageCode: "it-it"
-title: "Portfolio di Andrea Morosati"
+title: "Portfolio di amagit"
 theme: ["github.com/hugo-toha/toha/v4"]
 
 # Configurazione autore e informazioni personali
 params:
   author:
-    name: "Andrea Morosati"
-    headline: "Sviluppatore Software Full-Stack"
+    name: "amagit"
+    headline: "Sviluppatore, maker e open source enthusiast"
     image: "img/author/author.jpg"
-    bio: "Sviluppatore appassionato di tecnologie moderne e soluzioni innovative"
+    bio: "Portfolio, progetti e risorse di amagit. Tutto il mio codice, idee e contributi open source."
     location: "Italia"
-    email: "andrea.morosati@example.com"
+    email: "info@amaigit.github.io"
 
   # Social links
   social:
@@ -58,8 +58,8 @@ params:
   gitRepo: "https://github.com/amaigit/githubHugoPortfolioWithBlog"
   
   # SEO
-  description: "Portfolio professionale e blog tecnico di Andrea Morosati - Sviluppatore Full-Stack"
-  keywords: ["portfolio", "blog", "sviluppatore", "full-stack", "hugo", "toha"]
+  description: "Portfolio, progetti e blog di amagit: sviluppo software, open source, automazione, AI e molto altro."
+  keywords: ["portfolio", "amagit", "github", "open source", "sviluppatore", "blog", "hugo", "toha"]
   
   # Footer
   footer:

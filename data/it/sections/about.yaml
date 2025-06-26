@@ -5,13 +5,13 @@ section:
   weight: 1
   showOnNavbar: true
   template: sections/about.html
-designation: Sviluppatore Software Full-Stack
+designation: Sviluppatore, maker e open source enthusiast
 company:
   name: ""
   url: ""
-tags: ["full-stack", "developer", "italia"]
+tags: ["open source", "automation", "ai", "devops", "italia"]
 summary: >-
-  Sviluppatore appassionato di tecnologie moderne e soluzioni innovative. Con anni di esperienza nello sviluppo web e mobile, mi dedico alla creazione di applicazioni performanti e user-friendly.
+  Benvenuto nel portfolio di amagit! Qui trovi i miei progetti open source, dashboard, automazioni, esperimenti AI e risorse utili. Credo nella condivisione della conoscenza e nello sviluppo di soluzioni innovative per la community.
 socialLinks:
   - name: Github
     icon: "fab fa-github"

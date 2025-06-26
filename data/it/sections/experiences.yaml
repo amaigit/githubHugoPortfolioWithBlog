@@ -6,21 +6,24 @@ section:
   showOnNavbar: true
   template: sections/experiences.html
 experiences:
-  - company:
-      name: "Innovate Startup"
-      logo: images/experiences/innovate-logo.png
-      url: ""
+  - company: "Open Source Community"
+    logo: images/experiences/innovate-logo.png
+    url: "https://github.com/amaigit"
     positions:
-      - title: "Full-Stack Developer"
-        period: "Marzo 2021 - Dicembre 2022"
-        summary: >-
-          Sviluppo frontend in React, API RESTful in Node.js, DevOps su GitHub Actions, deploy su Google Cloud con Docker. Lavoro in team Agile.
-  - company:
-      name: "TechCorp S.p.A."
-      logo: images/experiences/techcorp-logo.png
-      url: ""
+      - designation: "Maintainer & Contributor"
+        start: "2020"
+        end: "Presente"
+        responsibilities:
+          - "Sviluppo e manutenzione di progetti open source su GitHub."
+          - "Automazione workflow CI/CD, integrazione API, documentazione."
+          - "Mentoring e supporto alla community."
+  - company: "Progetti personali e freelance"
+    logo: images/experiences/techcorp-logo.png
+    url: "https://github.com/amaigit"
     positions:
-      - title: "Senior Software Engineer"
-        period: "Gennaio 2023 - Presente"
-        summary: >-
-          Progettazione microservizi Go, migrazione su AWS, ottimizzazione performance, mentoring, DevOps CI/CD con Terraform. 
+      - designation: "Full-Stack Developer"
+        start: "2017"
+        end: "2020"
+        responsibilities:
+          - "Sviluppo di dashboard, tool CLI, automazioni e web app."
+          - "Esperimenti con AI, scraping, data analysis e automazione." 

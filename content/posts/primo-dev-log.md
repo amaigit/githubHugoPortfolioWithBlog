@@ -1,14 +1,21 @@
 ---
-title: "Il Mio Primo Dev Log: Avvio del Portfolio con Hugo e Toha"
-date: 2025-01-26T10:00:00+01:00
-author: "Andrea Morosati"
-tags: ["sviluppo", "hugo", "toha", "portfolio", "blog"]
+title: "Benvenuto nel portfolio di amagit!"
+date: 2024-06-01T10:00:00+02:00
+description: "Scopri come nasce questo portfolio, la filosofia open source e le tecnologie usate."
+tags: ["portfolio", "open source", "hugo", "github actions"]
 draft: false
 ---
 
-# Il Mio Primo Dev Log: Avvio del Portfolio con Hugo e Toha
+Ciao! Questo è il primo post del mio nuovo portfolio/blog statico, costruito con Hugo e il tema Toha. Qui troverai:
 
-Benvenuti nel primo articolo di questo diario di sviluppo! Oggi ho iniziato a lavorare sul **Portfolio con Hugo e Toha**, un progetto che mi accompagnerà nel documentare il mio percorso professionale e condividere esperienze tecniche.
+- Progetti open source
+- Dashboard e automazioni
+- Esperimenti con AI e dati
+- Guide tecniche e risorse utili
+
+Il sito è completamente open source e aggiornato tramite GitHub Actions. Se vuoi contribuire o hai domande, trovi tutto su [GitHub](https://github.com/amaigit/githubHugoPortfolioWithBlog)!
+
+Buona esplorazione!
 
 ## Perché Hugo e Toha?
 
