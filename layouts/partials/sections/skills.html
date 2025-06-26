@@ -1,0 +1,20 @@
+{{ $section := .section }}
+{{ $skills := .section.skills }}
+<section id="skills" class="section section-skills">
+  <div class="container">
+    <h2 class="section-title">{{ $section.name | default "Competenze" }}</h2>
+    <div class="row">
+      {{ range $skills }}
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 text-center">
+          <div class="card-body">
+            {{ with .icon }}<img src="/{{ . }}" alt="{{ .name }}" class="mb-2" style="height:48px;">{{ end }}
+            <h5 class="card-title">{{ .name }}</h5>
+            <p class="card-text">{{ .level }}</p>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section> 

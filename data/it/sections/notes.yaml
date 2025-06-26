@@ -6,15 +6,13 @@ section:
   showOnNavbar: true
   template: sections/notes.html
 notes:
-  - title: "Comandi Git utili"
-    date: 2024-06-26
-    tags: ["git", "cli", "workflow"]
-    summary: >-
-      Alcuni comandi git che uso spesso per velocizzare il lavoro.
-    file: notes/git-cheatsheet.md
-  - title: "Snippet Python per API"
-    date: 2024-06-26
-    tags: ["python", "api", "snippet"]
-    summary: >-
-      Esempio di chiamata API REST in Python con requests.
-    file: notes/python-api-snippet.md 
+  - title: Cheat Sheet Git
+    summary: Comandi essenziali per lavorare con Git in modo efficace.
+    date: 2024-06-01
+    tags: [Git, Versionamento]
+    file: content/notes/git-cheatsheet.md
+  - title: Snippet API Python
+    summary: Esempio di chiamata API REST in Python con requests.
+    date: 2024-06-10
+    tags: [Python, API]
+    file: content/notes/python-api-snippet.md 

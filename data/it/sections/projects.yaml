@@ -6,22 +6,14 @@ section:
   showOnNavbar: true
   template: sections/projects.html
 projects:
-  - name: "E-Commerce Platform"
-    image: images/projects/ecommerce-preview.png
-    tech: ["React", "Node.js", "PostgreSQL", "Redis", "Docker"]
-    tags: ["web", "ecommerce", "react", "cloud"]
-    summary: >-
-      Piattaforma e-commerce completa con gestione prodotti, carrello, pagamenti e dashboard admin. Architettura moderna e scalabile.
-    buttons:
-      - name: Live Demo
-        icon: "fas fa-desktop"
-        url: "https://ecommerce-demo.amaigit.dev"
-      - name: GitHub
-        icon: "fab fa-github"
-        url: "https://github.com/amaigit/ecommerce-platform"
-      - name: Documentazione API
-        icon: "fas fa-code"
-        url: "https://api.ecommerce-demo.amaigit.dev/docs"
+  - name: CLI Tool
+    summary: Strumento da linea di comando per la gestione di deployment cloud.
+    image: assets/images/projects/cli-tool-preview.png
+    url: https://github.com/hugo/cli-tool
+  - name: E-commerce Platform
+    summary: Piattaforma e-commerce scalabile con microservizi e frontend React.
+    image: assets/images/projects/ecommerce-preview.png
+    url: https://github.com/hugo/ecommerce
   - name: "CLI Tool"
     image: ""
     tech: ["Go", "Cobra"]

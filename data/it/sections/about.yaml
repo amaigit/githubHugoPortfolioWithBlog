@@ -1,10 +1,17 @@
 section:
-  name: Chi Sono
+  name: Chi sono
   id: about
   enable: true
   weight: 1
   showOnNavbar: true
   template: sections/about.html
+nome: Hugo Rossi
+descrizione: >-
+  Sviluppatore software appassionato di Go, React e DevOps. Creo soluzioni scalabili e moderne per il web e il cloud.
+contatti:
+  email: hugo.rossi@example.com
+  linkedin: linkedin.com/in/hugorossi
+immagine: img/author/author.jpg
 designation: Sviluppatore, maker e open source enthusiast
 company:
   name: ""

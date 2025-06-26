@@ -1,0 +1,20 @@
+{{ $section := .section }}
+{{ $experiences := .section.experiences }}
+<section id="experiences" class="section section-experiences">
+  <div class="container">
+    <h2 class="section-title">{{ $section.name | default "Esperienze" }}</h2>
+    <div class="row">
+      {{ range $experiences }}
+      <div class="col-md-12 col-lg-6 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ .role }} @ {{ .company }}</h5>
+            <p class="card-text">{{ .description }}</p>
+            <p class="card-meta small text-muted mb-2">{{ .start }} - {{ .end | default "Presente" }}</p>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section> 

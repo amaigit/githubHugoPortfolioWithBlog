@@ -1,5 +1,5 @@
 section:
-  name: Blog
+  name: Post
   id: posts
   enable: true
   weight: 5

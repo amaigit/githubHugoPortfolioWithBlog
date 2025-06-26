@@ -2,10 +2,20 @@ section:
   name: Esperienze
   id: experiences
   enable: true
-  weight: 3
+  weight: 2
   showOnNavbar: true
   template: sections/experiences.html
 experiences:
+  - role: Senior Backend Developer
+    company: Innovatech
+    description: Sviluppo microservizi in Go e architetture cloud-native per clienti enterprise.
+    start: 2022
+    end: Presente
+  - role: Full Stack Developer
+    company: TechCorp
+    description: Realizzazione di applicazioni web con React e Node.js, CI/CD e DevOps.
+    start: 2020
+    end: 2022
   - company:
       name: "Open Source Community"
       logo: images/experiences/innovate-logo.png

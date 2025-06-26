@@ -1,0 +1,21 @@
+{{ $section := .section }}
+{{ $projects := .section.projects }}
+<section id="projects" class="section section-projects">
+  <div class="container">
+    <h2 class="section-title">{{ $section.name | default "Progetti" }}</h2>
+    <div class="row">
+      {{ range $projects }}
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          {{ with .image }}<img src="/{{ . }}" class="card-img-top" alt="Anteprima progetto">{{ end }}
+          <div class="card-body">
+            <h5 class="card-title">{{ .name }}</h5>
+            <p class="card-text">{{ .summary }}</p>
+            <a href="{{ .url }}" class="btn btn-primary btn-sm" target="_blank">Dettagli</a>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section> 

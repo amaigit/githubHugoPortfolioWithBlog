@@ -1,0 +1,19 @@
+{{ $section := .section }}
+<section id="about" class="section section-about">
+  <div class="container">
+    <h2 class="section-title">{{ $section.name | default "Chi sono" }}</h2>
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <img src="/img/author/author.jpg" alt="Foto autore" class="img-fluid rounded-circle mb-3" style="max-width:180px;">
+      </div>
+      <div class="col-md-8">
+        <h3>Hugo Rossi</h3>
+        <p>Sviluppatore software appassionato di Go, React e DevOps. Creo soluzioni scalabili e moderne per il web e il cloud.</p>
+        <ul class="list-unstyled">
+          <li><strong>Email:</strong> hugo.rossi@example.com</li>
+          <li><strong>LinkedIn:</strong> linkedin.com/in/hugorossi</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section> 

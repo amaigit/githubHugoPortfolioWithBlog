@@ -2,7 +2,7 @@ section:
   name: Competenze
   id: skills
   enable: true
-  weight: 2
+  weight: 3
   showOnNavbar: true
   template: sections/skills.html
 skills:
@@ -30,4 +30,13 @@ skills:
     logo: images/skills/docker.png
     tags: ["dashboard", "python", "data"]
     summary: >-
-      Creazione di dashboard e web app data-driven in Python con Streamlit. 
+      Creazione di dashboard e web app data-driven in Python con Streamlit.
+  - name: Go
+    icon: assets/images/skills/go.png
+    level: Avanzato
+  - name: React
+    icon: assets/images/skills/react.png
+    level: Avanzato
+  - name: Docker
+    icon: assets/images/skills/docker.png
+    level: Intermedio 
