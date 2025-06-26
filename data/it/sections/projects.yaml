@@ -7,7 +7,7 @@ section:
   template: sections/projects.html
 projects:
   - name: "E-Commerce Platform"
-    image: "/img/projects/ecommerce-preview.png"
+    image: images/projects/ecommerce-preview.png
     tech: ["React", "Node.js", "PostgreSQL", "Redis", "Docker"]
     summary: >-
       Piattaforma e-commerce completa con gestione prodotti, carrello, pagamenti e dashboard admin. Architettura moderna e scalabile.
