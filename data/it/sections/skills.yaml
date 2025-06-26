@@ -7,14 +7,14 @@ section:
   template: sections/skills.html
 skills:
   - name: Docker
-    logo: /img/skills/docker.svg
+    logo: images/skills/docker.svg
     summary: >-
       Docker è essenziale nel mio workflow di sviluppo e deployment. Utilizzo container per garantire consistenza tra ambienti di sviluppo, test e produzione.
   - name: Go (Golang)
-    logo: /img/skills/go.svg
+    logo: images/skills/go.svg
     summary: >-
       Go è il mio linguaggio di programmazione preferito per lo sviluppo di servizi backend ad alte prestazioni. Apprezzo la sua semplicità, la concorrenza nativa e l'efficienza nella gestione della memoria.
   - name: React
-    logo: /img/skills/react.svg
+    logo: images/skills/react.svg
     summary: >-
       React è la mia scelta principale per lo sviluppo di interfacce utente moderne e interattive. Utilizzo React con TypeScript per creare applicazioni robuste e scalabili. 
