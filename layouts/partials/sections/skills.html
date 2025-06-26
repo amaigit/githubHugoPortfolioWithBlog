@@ -22,7 +22,7 @@
                   {{ with $.logo }}<img src="/{{ . }}" alt="{{ $.name }}" class="mb-2" style="height:48px;">{{ end }}
                   <h5 class="card-title">{{ $.name }}</h5>
                   <p class="card-text">{{ $.summary }}</p>
-                  <div class="small text-muted">{{ delimit $.tags ", " }}</div>
+                  {{ with $.url }}<a href="{{ . }}" target="_blank" class="btn btn-outline-primary btn-sm mt-2">Scopri di più</a>{{ end }}
                 {{ end }}
               </div>
             </div>
