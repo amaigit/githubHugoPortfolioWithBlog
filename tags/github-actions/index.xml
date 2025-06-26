@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Github Actions on Portfolio di amagit</title><link>https://amaigit.github.io/githubHugoPortfolioWithBlog/tags/github-actions/</link><description>Recent content in Github Actions on Portfolio di amagit</description><generator>Hugo -- gohugo.io</generator><language>it</language><managingEditor>info@amaigit.github.io (amagit)</managingEditor><webMaster>info@amaigit.github.io (amagit)</webMaster><lastBuildDate>Sat, 01 Jun 2024 10:00:00 +0200</lastBuildDate><atom:link href="https://amaigit.github.io/githubHugoPortfolioWithBlog/tags/github-actions/index.xml" rel="self" type="application/rss+xml"/><item><title>Benvenuto nel portfolio di amagit!</title><link>https://amaigit.github.io/githubHugoPortfolioWithBlog/blog/2024/06/benvenuto-nel-portfolio-di-amagit/</link><pubDate>Sat, 01 Jun 2024 10:00:00 +0200</pubDate><author>info@amaigit.github.io (amagit)</author><guid>https://amaigit.github.io/githubHugoPortfolioWithBlog/blog/2024/06/benvenuto-nel-portfolio-di-amagit/</guid><description>&lt;p>Ciao! Questo è il primo post del mio nuovo portfolio/blog statico, costruito con Hugo e il tema Toha. Qui troverai:&lt;/p>
+&lt;ul>
+&lt;li>Progetti open source&lt;/li>
+&lt;li>Dashboard e automazioni&lt;/li>
+&lt;li>Esperimenti con AI e dati&lt;/li>
+&lt;li>Guide tecniche e risorse utili&lt;/li>
+&lt;/ul>
+&lt;p>Il sito è completamente open source e aggiornato tramite GitHub Actions. Se vuoi contribuire o hai domande, trovi tutto su &lt;a href="https://github.com/amaigit/githubHugoPortfolioWithBlog" target="_blank" rel="noopener">GitHub&lt;/a>!&lt;/p>
+&lt;p>Buona esplorazione!&lt;/p>
+&lt;h2 id="perché-hugo-e-toha">Perché Hugo e Toha?&lt;/h2>
+&lt;p>Ho scelto &lt;strong>Hugo&lt;/strong> come generatore di siti statici per diversi motivi:&lt;/p></description></item></channel></rss>
