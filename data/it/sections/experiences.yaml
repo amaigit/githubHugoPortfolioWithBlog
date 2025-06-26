@@ -6,9 +6,10 @@ section:
   showOnNavbar: true
   template: sections/experiences.html
 experiences:
-  - company: "Open Source Community"
-    logo: images/experiences/innovate-logo.png
-    url: "https://github.com/amaigit"
+  - company:
+      name: "Open Source Community"
+      logo: images/experiences/innovate-logo.png
+      url: "https://github.com/amaigit"
     positions:
       - designation: "Maintainer & Contributor"
         start: "2020"
@@ -17,9 +18,10 @@ experiences:
           - "Sviluppo e manutenzione di progetti open source su GitHub."
           - "Automazione workflow CI/CD, integrazione API, documentazione."
           - "Mentoring e supporto alla community."
-  - company: "Progetti personali e freelance"
-    logo: images/experiences/techcorp-logo.png
-    url: "https://github.com/amaigit"
+  - company:
+      name: "Progetti personali e freelance"
+      logo: images/experiences/techcorp-logo.png
+      url: "https://github.com/amaigit"
     positions:
       - designation: "Full-Stack Developer"
         start: "2017"
