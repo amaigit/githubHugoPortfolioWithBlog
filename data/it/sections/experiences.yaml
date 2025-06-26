@@ -18,7 +18,7 @@ experiences:
     end: 2022
   - company:
       name: "Open Source Community"
-      logo: images/experiences/innovate-logo.png
+      logo: img/experiences/innovate-logo.png
       url: "https://github.com/amaigit"
     positions:
       - designation: "Maintainer & Contributor"
@@ -30,7 +30,7 @@ experiences:
           - "Mentoring e supporto alla community."
   - company:
       name: "Progetti personali e freelance"
-      logo: images/experiences/techcorp-logo.png
+      logo: img/experiences/techcorp-logo.png
       url: "https://github.com/amaigit"
     positions:
       - designation: "Full-Stack Developer"

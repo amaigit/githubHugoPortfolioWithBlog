@@ -7,7 +7,7 @@
       {{ range $projects }}
       <div class="col-md-6 col-lg-4 mb-4">
         <div class="card h-100">
-          {{ with .image }}<img src="/{{ . }}" class="card-img-top" alt="Anteprima progetto">{{ end }}
+          {{ with .image }}<img src="/{{ . }}" class="card-img-top" alt="Anteprima progetto">{{ else }}<div class="card-img-top bg-light" style="height:180px;"></div>{{ end }}
           <div class="card-body">
             <h5 class="card-title">{{ .name }}</h5>
             <p class="card-text">
@@ -17,7 +17,12 @@
                 Nessun riassunto disponibile
               {{ end }}
             </p>
-            <a href="{{ .url }}" class="btn btn-primary btn-sm" target="_blank">Dettagli</a>
+            {{ if .url }}<a href="{{ .url }}" class="btn btn-primary btn-sm" target="_blank">Dettagli</a>{{ end }}
+            {{ if .buttons }}
+              {{ range .buttons }}
+                <a href="{{ .url }}" class="btn btn-outline-secondary btn-sm ms-1" target="_blank"><i class="{{ .icon }}"></i> {{ .name }}</a>
+              {{ end }}
+            {{ end }}
           </div>
         </div>
       </div>

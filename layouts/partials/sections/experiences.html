@@ -5,21 +5,45 @@
     <h2 class="section-title">{{ $section.name | default "Esperienze" }}</h2>
     <div class="row">
       {{ range $experiences }}
-      <div class="col-md-12 col-lg-6 mb-4">
-        <div class="card h-100">
-          <div class="card-body">
-            <h5 class="card-title">{{ .role }} @ {{ .company }}</h5>
-            <p class="card-text">
-              {{ with .description }}
-                {{ . }}
-              {{ else }}
-                Nessuna descrizione disponibile
-              {{ end }}
-            </p>
-            <p class="card-meta small text-muted mb-2">{{ .start }} - {{ .end | default "Presente" }}</p>
+        {{ if .role }}
+          <!-- Esperienza semplice -->
+          <div class="col-md-12 col-lg-6 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">{{ .role }} @ {{ .company }}</h5>
+                <p class="card-text">
+                  {{ with .description }}
+                    {{ . }}
+                  {{ else }}
+                    Nessuna descrizione disponibile
+                  {{ end }}
+                </p>
+                <p class="card-meta small text-muted mb-2">{{ .start }} - {{ .end | default "Presente" }}</p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        {{ else if .company }}
+          <!-- Esperienza con posizioni annidate -->
+          <div class="col-md-12 col-lg-6 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-2">
+                  {{ with .company.logo }}<img src="/{{ . }}" alt="Logo azienda" style="height:32px;" class="me-2">{{ end }}
+                  <h5 class="card-title mb-0">{{ .company.name }}</h5>
+                </div>
+                <div class="small text-muted mb-2">{{ .company.url }}</div>
+                {{ range .positions }}
+                  <div class="mb-2">
+                    <strong>{{ .designation }}</strong> ({{ .start }} - {{ .end | default "Presente" }})
+                    <ul class="mb-1">
+                      {{ range .responsibilities }}<li>{{ . }}</li>{{ end }}
+                    </ul>
+                  </div>
+                {{ end }}
+              </div>
+            </div>
+          </div>
+        {{ end }}
       {{ end }}
     </div>
   </div>

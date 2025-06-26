@@ -8,9 +8,16 @@
       <div class="col-md-6 col-lg-4 mb-4">
         <div class="card h-100 text-center">
           <div class="card-body">
-            {{ with .icon }}<img src="/{{ . }}" alt="{{ .name }}" class="mb-2" style="height:48px;">{{ end }}
-            <h5 class="card-title">{{ .name }}</h5>
-            <p class="card-text">{{ .level }}</p>
+            {{ if .icon }}
+              <img src="/{{ .icon }}" alt="{{ .name }}" class="mb-2" style="height:48px;">
+              <h5 class="card-title">{{ .name }}</h5>
+              <p class="card-text">Livello: {{ .level }}</p>
+            {{ else }}
+              {{ with .logo }}<img src="/{{ . }}" alt="{{ .name }}" class="mb-2" style="height:48px;">{{ end }}
+              <h5 class="card-title">{{ .name }}</h5>
+              <p class="card-text">{{ .summary }}</p>
+              <div class="small text-muted">{{ delimit .tags ", " }}</div>
+            {{ end }}
           </div>
         </div>
       </div>
