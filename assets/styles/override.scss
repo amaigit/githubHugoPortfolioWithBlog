@@ -13,3 +13,240 @@
 //     display: block;
 //   }
 // }
+
+// Personalizzazioni tema Toha
+// Override colori e stili personalizzati
+
+:root {
+  // Colori principali personalizzati
+  --primary-color: #2563eb;
+  --secondary-color: #1e40af;
+  --accent-color: #3b82f6;
+  
+  // Colori di sfondo
+  --bg-color: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  
+  // Colori testo
+  --text-color: #1e293b;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  
+  // Colori link
+  --link-color: #2563eb;
+  --link-hover-color: #1e40af;
+  
+  // Colori card
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+  --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+// Dark mode
+[data-scheme="dark"] {
+  --bg-color: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --text-color: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+  --card-bg: #1e293b;
+  --card-border: #334155;
+  --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+// Personalizzazioni sezione hero
+.hero {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  
+  .hero-title {
+    font-weight: 700;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.9;
+  }
+}
+
+// Personalizzazioni card progetti
+.project-card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  overflow: hidden;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  .project-image {
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .project-content {
+    padding: 1.5rem;
+  }
+  
+  .project-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+  }
+  
+  .project-description {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+  }
+  
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    
+    .tech-tag {
+      background: var(--accent-color);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+  }
+}
+
+// Personalizzazioni sezione skills
+.skill-card {
+  text-align: center;
+  padding: 1.5rem;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  transition: transform 0.2s ease-in-out;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+  
+  .skill-logo {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1rem;
+  }
+  
+  .skill-name {
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+  }
+  
+  .skill-description {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+  }
+}
+
+// Personalizzazioni sezione esperienze
+.experience-card {
+  border-left: 4px solid var(--primary-color);
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+  
+  .experience-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    
+    .company-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      margin-right: 1rem;
+      object-fit: cover;
+    }
+    
+    .company-info {
+      flex: 1;
+      
+      .company-name {
+        font-weight: 600;
+        color: var(--text-color);
+        margin-bottom: 0.25rem;
+      }
+      
+      .position {
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+      }
+      
+      .period {
+        color: var(--text-muted);
+        font-size: 0.75rem;
+      }
+    }
+  }
+  
+  .experience-content {
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+}
+
+// Personalizzazioni navbar
+.navbar {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9);
+  
+  [data-scheme="dark"] & {
+    background: rgba(15, 23, 42, 0.9);
+  }
+}
+
+// Personalizzazioni footer
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--card-border);
+  padding: 2rem 0;
+  text-align: center;
+  
+  .footer-text {
+    color: var(--text-secondary);
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .hero {
+    .hero-title {
+      font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+  }
+  
+  .project-card {
+    .project-image {
+      height: 150px;
+    }
+  }
+  
+  .experience-card {
+    .experience-header {
+      flex-direction: column;
+      text-align: center;
+      
+      .company-logo {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

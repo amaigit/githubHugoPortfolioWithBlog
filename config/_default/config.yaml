@@ -8,7 +8,7 @@ params:
   author:
     name: "Andrea Morosati"
     headline: "Sviluppatore Software Full-Stack"
-    image: "img/author.jpg"
+    image: "img/author/author.jpg"
     bio: "Sviluppatore appassionato di tecnologie moderne e soluzioni innovative"
     location: "Italia"
     email: "andrea.morosati@example.com"
