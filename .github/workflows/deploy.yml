@@ -41,11 +41,15 @@ jobs:
       - name: Install npm dependencies
         run: npm install
 
-      # Step 7: Compila il sito ottimizzando i file
+      # Step 7: Pulisci la cache di Hugo
+      - name: Clean Hugo cache
+        run: hugo --gc
+
+      # Step 8: Compila il sito ottimizzando i file
       - name: Build
         run: hugo --minify
 
-      # Step 8: Pubblica i file compilati su GitHub Pages
+      # Step 9: Pubblica i file compilati su GitHub Pages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
