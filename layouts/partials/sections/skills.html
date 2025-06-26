@@ -1,6 +1,6 @@
 {{/* DEBUG: stampa il contesto ricevuto */}}
 {{/* {{ printf "%#v" . }} */}}
-{{ $skills := .skills | default .section.skills | default . }}
+{{ $skills := site.Data.it.skills.skills }}
 {{ $skillsLen := len $skills }}
 <section id="skills" class="section section-skills">
   <div class="container">

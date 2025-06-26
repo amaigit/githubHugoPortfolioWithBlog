@@ -1,4 +1,4 @@
-{{ $experiences := .experiences | default .section.experiences }}
+{{ $experiences := site.Data.it.experiences.experiences }}
 {{ with .section }}
   <h2 class="section-title">{{ .name | default "Esperienze" }}</h2>
 {{ else }}

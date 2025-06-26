@@ -1,4 +1,4 @@
-{{ $projects := .projects | default .section.projects }}
+{{ $projects := site.Data.it.projects.projects }}
 {{ with .section }}
   <h2 class="section-title">{{ .name | default "Progetti" }}</h2>
 {{ else }}
@@ -8,22 +8,22 @@
   <div class="container">
     <div class="row">
       {{ range $projects }}
-        {{ if (isset . "name") }}
+        {{ with .name }}
         <div class="col-md-6 col-lg-4 mb-4">
           <div class="card h-100">
-            {{ with .image }}<img src="/{{ . }}" class="card-img-top" alt="Anteprima progetto">{{ else }}<div class="card-img-top bg-light" style="height:180px;"></div>{{ end }}
+            {{ with $.image }}<img src="/{{ . }}" class="card-img-top" alt="Anteprima progetto">{{ else }}<div class="card-img-top bg-light" style="height:180px;"></div>{{ end }}
             <div class="card-body">
-              <h5 class="card-title">{{ .name }}</h5>
+              <h5 class="card-title">{{ . }}</h5>
               <p class="card-text">
-                {{ with .summary }}
+                {{ with $.summary }}
                   {{ . }}
                 {{ else }}
                   Nessun riassunto disponibile
                 {{ end }}
               </p>
-              {{ if .url }}<a href="{{ .url }}" class="btn btn-primary btn-sm" target="_blank">Dettagli</a>{{ end }}
-              {{ if .buttons }}
-                {{ range .buttons }}
+              {{ if $.url }}<a href="{{ $.url }}" class="btn btn-primary btn-sm" target="_blank">Dettagli</a>{{ end }}
+              {{ if $.buttons }}
+                {{ range $.buttons }}
                   <a href="{{ .url }}" class="btn btn-outline-secondary btn-sm ms-1" target="_blank"><i class="{{ .icon }}"></i> {{ .name }}</a>
                 {{ end }}
               {{ end }}

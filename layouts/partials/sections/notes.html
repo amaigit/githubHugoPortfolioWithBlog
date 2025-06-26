@@ -1,27 +1,23 @@
-{{ $notes := .notes | default .section.notes }}
-{{ with .section }}
-  <h2 class="section-title">{{ .name | default "Note" }}</h2>
-{{ else }}
-  <h2 class="section-title">Note</h2>
-{{ end }}
+{{ $notes := site.Data.it.notes.notes }}
 <section id="notes" class="section section-notes">
   <div class="container">
+    <h2 class="section-title">{{ .name | default "Note" }}</h2>
     <div class="row">
       {{ range $notes }}
-        {{ if (isset . "title") }}
+        {{ with .title }}
         <div class="col-md-6 col-lg-4 mb-4">
           <div class="card h-100">
             <div class="card-body">
-              <h5 class="card-title">{{ .title }}</h5>
+              <h5 class="card-title">{{ . }}</h5>
               <p class="card-text">
-                {{ with .summary }}
+                {{ with $.summary }}
                   {{ . }}
                 {{ else }}
                   Nessun riassunto disponibile
                 {{ end }}
               </p>
-              <p class="card-meta small text-muted mb-2">{{ .date }} | {{ delimit .tags ", " }}</p>
-              {{ with .file }}
+              <p class="card-meta small text-muted mb-2">{{ $.date }}{{ with $.tags }} | {{ delimit . ", " }}{{ end }}</p>
+              {{ with $.file }}
               <a href="/{{ . }}" class="btn btn-primary btn-sm" target="_blank">Leggi</a>
               {{ end }}
             </div>
