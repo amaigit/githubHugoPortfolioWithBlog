@@ -29,10 +29,6 @@ jobs:
           hugo-version: 'latest'
           extended: true # Installa la versione Extended, necessaria per Toha
 
-      # Step 3: Inizializza moduli Hugo
-      - name: Initialize Hugo Modules
-        run: hugo mod init githubHugoPortfolioWithBlog
-
       # Step 4: Scarica moduli Hugo
       - name: Get Hugo Modules
         run: hugo mod get
