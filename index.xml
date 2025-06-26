@@ -312,7 +312,7 @@
 &lt;h2 id="sviluppatore-software-full-stack">Sviluppatore Software Full-Stack&lt;/h2>
 &lt;p>Ciao! Sono Andrea Morosati, uno sviluppatore software appassionato di tecnologie moderne e soluzioni innovative. Con anni di esperienza nello sviluppo web e mobile, mi dedico alla creazione di applicazioni performanti e user-friendly.&lt;/p>
 &lt;h3 id="la-mia-storia">La Mia Storia&lt;/h3>
-&lt;p>Ho iniziato il mio percorso nel mondo della programmazione con la curiosità di capire come funzionano le cose. Da allora, ho lavorato su progetti di diverse dimensioni, dal piccolo tool a riga di comando alle applicazioni enterprise complesse.&lt;/p></description></item><item><title>Comandi Git utili</title><link>https://amaigit.github.io/githubHugoPortfolioWithBlog/notes/git-cheatsheet/</link><pubDate>Wed, 26 Jun 2024 00:00:00 +0000</pubDate><author>info@amaigit.github.io (amagit)</author><guid>https://amaigit.github.io/githubHugoPortfolioWithBlog/notes/git-cheatsheet/</guid><description>&lt;h1 id="comandi-git-utili">Comandi Git utili&lt;/h1>
+&lt;p>Ho iniziato il mio percorso nel mondo della programmazione con la curiosità di capire come funzionano le cose. Da allora, ho lavorato su progetti di diverse dimensioni, dal piccolo tool a riga di comando alle applicazioni enterprise complesse.&lt;/p></description></item><item><title>Come costruire microservizi in Go</title><link>https://amaigit.github.io/githubHugoPortfolioWithBlog/blog/2024/06/come-costruire-microservizi-in-go/</link><pubDate>Sun, 30 Jun 2024 10:00:00 +0200</pubDate><author>info@amaigit.github.io (amagit)</author><guid>https://amaigit.github.io/githubHugoPortfolioWithBlog/blog/2024/06/come-costruire-microservizi-in-go/</guid><description>Guida pratica alla realizzazione di microservizi scalabili con Go e Docker.</description></item><item><title>Comandi Git utili</title><link>https://amaigit.github.io/githubHugoPortfolioWithBlog/notes/git-cheatsheet/</link><pubDate>Wed, 26 Jun 2024 00:00:00 +0000</pubDate><author>info@amaigit.github.io (amagit)</author><guid>https://amaigit.github.io/githubHugoPortfolioWithBlog/notes/git-cheatsheet/</guid><description>&lt;h1 id="comandi-git-utili">Comandi Git utili&lt;/h1>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git status
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git log --oneline
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git branch -a
@@ -541,88 +541,4 @@ home = [&amp;ldquo;HTML&amp;rdquo;, &amp;ldquo;JSON&amp;rdquo;]
 ```
 [outputs]
 home = [&amp;ldquo;HTML&amp;rdquo;, &amp;ldquo;JSON&amp;rdquo;]
-```&lt;/p></description></item><item><title>Task Manager CLI</title><link>https://amaigit.github.io/githubHugoPortfolioWithBlog/projects/task-manager-cli/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>info@amaigit.github.io (amagit)</author><guid>https://amaigit.github.io/githubHugoPortfolioWithBlog/projects/task-manager-cli/</guid><description>&lt;h2 id="descrizione">Descrizione&lt;/h2>
-&lt;p>Task Manager CLI è un tool a riga di comando per la gestione efficiente di task e progetti. Sviluppato in Go, offre un&amp;rsquo;interfaccia intuitiva per organizzare il lavoro quotidiano.&lt;/p>
-&lt;h2 id="caratteristiche-principali">Caratteristiche Principali&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>Gestione Task&lt;/strong>: Creazione, modifica e completamento di task&lt;/li>
-&lt;li>&lt;strong>Categorie&lt;/strong>: Organizzazione per progetti e priorità&lt;/li>
-&lt;li>&lt;strong>Filtri Avanzati&lt;/strong>: Ricerca e filtraggio per stato, data, categoria&lt;/li>
-&lt;li>&lt;strong>Export&lt;/strong>: Esportazione dati in formato JSON e CSV&lt;/li>
-&lt;li>&lt;strong>Sincronizzazione&lt;/strong>: Backup automatico su cloud storage&lt;/li>
-&lt;/ul>
-&lt;h2 id="tecnologie">Tecnologie&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>Backend&lt;/strong>: Go con framework Cobra per CLI&lt;/li>
-&lt;li>&lt;strong>Database&lt;/strong>: SQLite per persistenza locale&lt;/li>
-&lt;li>&lt;strong>Configurazione&lt;/strong>: Viper per gestione configurazioni&lt;/li>
-&lt;li>&lt;strong>Testing&lt;/strong>: Test unitari e di integrazione&lt;/li>
-&lt;/ul>
-&lt;h2 id="impatto">Impatto&lt;/h2>
-&lt;ul>
-&lt;li>Miglioramento del 30% nella produttività personale&lt;/li>
-&lt;li>500+ download su GitHub&lt;/li>
-&lt;li>Contributi da 10+ sviluppatori open source&lt;/li>
-&lt;/ul></description></item><item><title>E-Commerce Platform</title><link>https://amaigit.github.io/githubHugoPortfolioWithBlog/projects/e-commerce-platform/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>info@amaigit.github.io (amagit)</author><guid>https://amaigit.github.io/githubHugoPortfolioWithBlog/projects/e-commerce-platform/</guid><description>&lt;h2 id="descrizione">Descrizione&lt;/h2>
-&lt;p>Piattaforma e-commerce completa sviluppata con architettura moderna e scalabile. Include gestione prodotti, carrello, pagamenti e dashboard amministrativa.&lt;/p>
-&lt;h2 id="caratteristiche-principali">Caratteristiche Principali&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>Catalogo Prodotti&lt;/strong>: Ricerca avanzata, filtri e paginazione&lt;/li>
-&lt;li>&lt;strong>Sistema Carrello&lt;/strong>: Gestione stato e sincronizzazione real-time&lt;/li>
-&lt;li>&lt;strong>Pagamenti&lt;/strong>: Integrazione con Stripe e PayPal&lt;/li>
-&lt;li>&lt;strong>Dashboard Admin&lt;/strong>: Gestione ordini, prodotti e analytics&lt;/li>
-&lt;li>&lt;strong>Responsive Design&lt;/strong>: Ottimizzato per mobile e desktop&lt;/li>
-&lt;/ul>
-&lt;h2 id="architettura">Architettura&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>Frontend&lt;/strong>: React con TypeScript e Redux&lt;/li>
-&lt;li>&lt;strong>Backend&lt;/strong>: Node.js con Express e TypeScript&lt;/li>
-&lt;li>&lt;strong>Database&lt;/strong>: PostgreSQL per dati principali, Redis per cache&lt;/li>
-&lt;li>&lt;strong>Deployment&lt;/strong>: Docker e Kubernetes su cloud&lt;/li>
-&lt;li>&lt;strong>Monitoring&lt;/strong>: Prometheus e Grafana&lt;/li>
-&lt;/ul>
-&lt;h2 id="risultati">Risultati&lt;/h2>
-&lt;ul>
-&lt;li>10.000+ transazioni processate&lt;/li>
-&lt;li>Tempo di caricamento &amp;lt;2 secondi&lt;/li>
-&lt;li>99.9% uptime in produzione&lt;/li>
-&lt;/ul></description></item><item><title/><link>https://amaigit.github.io/githubHugoPortfolioWithBlog/experiences/startup/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>info@amaigit.github.io (amagit)</author><guid>https://amaigit.github.io/githubHugoPortfolioWithBlog/experiences/startup/</guid><description>&lt;h2 id="responsabilità-principali">Responsabilità Principali&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>Sviluppo Frontend&lt;/strong>: Realizzazione di dashboard interattive in React e TypeScript&lt;/li>
-&lt;li>&lt;strong>API Design&lt;/strong>: Progettazione e sviluppo di API RESTful in Node.js&lt;/li>
-&lt;li>&lt;strong>DevOps&lt;/strong>: Gestione pipeline CI/CD su GitHub Actions&lt;/li>
-&lt;li>&lt;strong>Cloud&lt;/strong>: Deploy di microservizi su Google Cloud con Docker&lt;/li>
-&lt;li>&lt;strong>Team Collaboration&lt;/strong>: Lavoro in team Agile, partecipazione a sprint e code review&lt;/li>
-&lt;/ul>
-&lt;h2 id="tecnologie-utilizzate">Tecnologie Utilizzate&lt;/h2>
-&lt;ul>
-&lt;li>React, TypeScript, Node.js, Express&lt;/li>
-&lt;li>Docker, Google Cloud, MongoDB&lt;/li>
-&lt;li>GitHub Actions, Jira&lt;/li>
-&lt;/ul>
-&lt;h2 id="risultati-raggiunti">Risultati Raggiunti&lt;/h2>
-&lt;ul>
-&lt;li>Sviluppo e rilascio di 3 MVP in meno di 6 mesi&lt;/li>
-&lt;li>Incremento del 50% della soddisfazione utente tramite nuove funzionalità&lt;/li>
-&lt;li>Riduzione del 30% dei bug in produzione grazie a test automatizzati&lt;/li>
-&lt;/ul></description></item><item><title/><link>https://amaigit.github.io/githubHugoPortfolioWithBlog/experiences/tech-company/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>info@amaigit.github.io (amagit)</author><guid>https://amaigit.github.io/githubHugoPortfolioWithBlog/experiences/tech-company/</guid><description>&lt;h2 id="responsabilità-principali">Responsabilità Principali&lt;/h2>
-&lt;ul>
-&lt;li>&lt;strong>Sviluppo Backend&lt;/strong>: Progettazione e implementazione di microservizi in Go per l&amp;rsquo;API principale dell&amp;rsquo;azienda&lt;/li>
-&lt;li>&lt;strong>Architettura Cloud&lt;/strong>: Migrazione di servizi legacy su AWS utilizzando ECS e RDS&lt;/li>
-&lt;li>&lt;strong>Performance&lt;/strong>: Ottimizzazione di query database e implementazione di strategie di caching con Redis&lt;/li>
-&lt;li>&lt;strong>Team Leadership&lt;/strong>: Mentoring di sviluppatori junior e conduzione di code review&lt;/li>
-&lt;li>&lt;strong>DevOps&lt;/strong>: Automazione di pipeline CI/CD con GitHub Actions e Terraform&lt;/li>
-&lt;/ul>
-&lt;h2 id="tecnologie-utilizzate">Tecnologie Utilizzate&lt;/h2>
-&lt;ul>
-&lt;li>Go, PostgreSQL, Redis, AWS, Docker, Kubernetes&lt;/li>
-&lt;li>React, TypeScript, Node.js per frontend e tooling&lt;/li>
-&lt;li>Prometheus, Grafana per monitoring&lt;/li>
-&lt;li>Terraform per Infrastructure as Code&lt;/li>
-&lt;/ul>
-&lt;h2 id="risultati-raggiunti">Risultati Raggiunti&lt;/h2>
-&lt;ul>
-&lt;li>Riduzione del 40% dei tempi di risposta delle API&lt;/li>
-&lt;li>Miglioramento del 60% nella velocità di deployment&lt;/li>
-&lt;li>Implementazione di test automatizzati con copertura &amp;gt;90%&lt;/li>
-&lt;/ul></description></item><item><title/><link>https://amaigit.github.io/githubHugoPortfolioWithBlog/skills/docker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>info@amaigit.github.io (amagit)</author><guid>https://amaigit.github.io/githubHugoPortfolioWithBlog/skills/docker/</guid><description>&lt;p>Docker è essenziale nel mio workflow di sviluppo e deployment. Utilizzo container per garantire consistenza tra ambienti di sviluppo, test e produzione.&lt;/p></description></item><item><title/><link>https://amaigit.github.io/githubHugoPortfolioWithBlog/skills/go/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>info@amaigit.github.io (amagit)</author><guid>https://amaigit.github.io/githubHugoPortfolioWithBlog/skills/go/</guid><description>&lt;p>Go è il mio linguaggio di programmazione preferito per lo sviluppo di servizi backend ad alte prestazioni. Apprezzo la sua semplicità, la concorrenza nativa e l&amp;rsquo;efficienza nella gestione della memoria.&lt;/p></description></item><item><title/><link>https://amaigit.github.io/githubHugoPortfolioWithBlog/skills/react/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>info@amaigit.github.io (amagit)</author><guid>https://amaigit.github.io/githubHugoPortfolioWithBlog/skills/react/</guid><description>&lt;p>React è la mia scelta principale per lo sviluppo di interfacce utente moderne e interattive. Utilizzo React con TypeScript per creare applicazioni robuste e scalabili.&lt;/p></description></item></channel></rss>
+```&lt;/p></description></item></channel></rss>
