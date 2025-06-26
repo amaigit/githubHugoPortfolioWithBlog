@@ -8,24 +8,26 @@
   <div class="container">
     <div class="row">
       {{ range $notes }}
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card h-100">
-          <div class="card-body">
-            <h5 class="card-title">{{ .title }}</h5>
-            <p class="card-text">
-              {{ with .summary }}
-                {{ . }}
-              {{ else }}
-                Nessun riassunto disponibile
+        {{ if (isset . "title") }}
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">{{ .title }}</h5>
+              <p class="card-text">
+                {{ with .summary }}
+                  {{ . }}
+                {{ else }}
+                  Nessun riassunto disponibile
+                {{ end }}
+              </p>
+              <p class="card-meta small text-muted mb-2">{{ .date }} | {{ delimit .tags ", " }}</p>
+              {{ with .file }}
+              <a href="/{{ . }}" class="btn btn-primary btn-sm" target="_blank">Leggi</a>
               {{ end }}
-            </p>
-            <p class="card-meta small text-muted mb-2">{{ .date }} | {{ delimit .tags ", " }}</p>
-            {{ with .file }}
-            <a href="/{{ . }}" class="btn btn-primary btn-sm" target="_blank">Leggi</a>
-            {{ end }}
+            </div>
           </div>
         </div>
-      </div>
+        {{ end }}
       {{ end }}
     </div>
   </div>
