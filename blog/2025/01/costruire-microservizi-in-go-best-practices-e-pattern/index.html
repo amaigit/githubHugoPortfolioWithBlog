@@ -1,0 +1,290 @@
+<!doctype html><html lang=en><head><title>Costruire Microservizi in Go: Best Practices e Pattern</title><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="ie=edge"><link rel=stylesheet href=/githubHugoPortfolioWithBlog/application.d1785a836403ea5674ce9266182089ba8e7605386dd4df10bc5916abdf6bdd88.css integrity="sha256-0Xhag2QD6lZ0zpJmGCCJuo52BTht1N8QvFkWq99r3Yg="><meta property="og:title" content="Portfolio di Andrea Morosati"><meta property="og:type" content="website"><meta property="og:description" content><meta property="og:image" content="/githubHugoPortfolioWithBlog/"><meta property="og:url" content="https://amaigit.github.io/githubHugoPortfolioWithBlog/"><meta name=description content="Costruire Microservizi in Go: Best Practices e Pattern"><script integrity="sha256-DO4ugzEwhTW1Id1UIWn0gUJWaebCYOypeTit6LW4QB4=">let theme=localStorage.getItem("theme-scheme")||localStorage.getItem("darkmode:color-scheme")||"light";theme==="system"&&(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?theme="dark":theme="light"),document.documentElement.setAttribute("data-theme",theme)</script></head><body class="type-posts kind-page" data-bs-spy=scroll data-bs-target=#TableOfContents data-bs-offset=80><div class="container-fluid bg-secondary wrapper"><nav class="navbar navbar-expand-xl top-navbar shadow" id=top-navbar><div class=container><button class="navbar-toggler navbar-light" id=sidebar-toggler type=button>
+<i data-feather=sidebar></i>
+</button>
+<a class=navbar-brand href=/githubHugoPortfolioWithBlog>Portfolio di Andrea Morosati</a>
+<button class="navbar-toggler navbar-light" id=navbar-toggler type=button data-bs-toggle=collapse data-bs-target=#top-nav-items aria-label=menu>
+<i data-feather=menu></i></button><div class="collapse navbar-collapse dynamic-navbar" id=top-nav-items><ul class="nav navbar-nav ms-auto"><li class=nav-item><a class=nav-link href=/githubHugoPortfolioWithBlog#home>Home</a></li></ul></div></div></nav><section class=sidebar-section id=sidebar-section><div class=sidebar-holder><div class=sidebar id=sidebar><form class=mx-auto method=get action=/githubHugoPortfolioWithBlog/search><input type=text name=keyword placeholder=Search data-search id=search-box></form><div class=sidebar-tree><ul class=tree id=tree><li id=list-heading><a href=/posts/ data-filter=all>Posts</a></li><div class=subtree></div></ul></div></div></div></section><section class=content-section id=content-section><div class=content><div class="container p-0 read-area"><div class="hero-area col-sm-12" id=hero-area style=background-image:url(/githubHugoPortfolioWithBlog/images/default-hero.jpg)></div><div class=page-content><div class="author-profile ms-auto align-self-lg-center"><img class=rounded-circle src=/githubHugoPortfolioWithBlog/images/default-avatar_hu_af7c48c7ef93202f.png alt="Author Image"><h5 class=author-name>Andrea Morosati</h5><p class=text-muted>Sunday, January 26, 2025</p></div><div class=title><h1>Costruire Microservizi in Go: Best Practices e Pattern</h1></div><div class=post-content id=post-content><h1 id=costruire-microservizi-in-go-best-practices-e-pattern>Costruire Microservizi in Go: Best Practices e Pattern</h1><p>Go è diventato uno dei linguaggi preferiti per lo sviluppo di microservizi grazie alla sua semplicità, performance e supporto nativo per la concorrenza. In questo articolo condivido le mie esperienze e best practices per costruire microservizi robusti e scalabili.</p><h2 id=perché-go-per-i-microservizi>Perché Go per i Microservizi?</h2><h3 id=vantaggi-principali>Vantaggi Principali</h3><ul><li><strong>Performance</strong>: Compilazione nativa e gestione efficiente della memoria</li><li><strong>Concorrenza</strong>: Goroutines e channels per gestione asincrona</li><li><strong>Semplicità</strong>: Sintassi pulita e standard library completa</li><li><strong>Deployment</strong>: Binari singoli, facile containerizzazione</li></ul><h2 id=architettura-di-base>Architettura di Base</h2><h3 id=struttura-del-progetto>Struttura del Progetto</h3><pre tabindex=0><code>microservice/
+├── cmd/
+│   └── server/
+│       └── main.go
+├── internal/
+│   ├── handler/
+│   ├── service/
+│   ├── repository/
+│   └── middleware/
+├── pkg/
+│   ├── database/
+│   ├── config/
+│   └── logger/
+├── api/
+│   └── proto/
+├── docker/
+└── go.mod
+</code></pre><h3 id=pattern-architetturali>Pattern Architetturali</h3><h4 id=1-clean-architecture>1. Clean Architecture</h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#75715e>// internal/handler/user.go</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>UserHandler</span> <span style=color:#66d9ef>struct</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>userService</span> <span style=color:#a6e22e>service</span>.<span style=color:#a6e22e>UserService</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>h</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>UserHandler</span>) <span style=color:#a6e22e>CreateUser</span>(<span style=color:#a6e22e>c</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>gin</span>.<span style=color:#a6e22e>Context</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>user</span> <span style=color:#a6e22e>domain</span>.<span style=color:#a6e22e>User</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>ShouldBindJSON</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>user</span>); <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>JSON</span>(<span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>StatusBadRequest</span>, <span style=color:#a6e22e>gin</span>.<span style=color:#a6e22e>H</span>{<span style=color:#e6db74>&#34;error&#34;</span>: <span style=color:#a6e22e>err</span>.<span style=color:#a6e22e>Error</span>()})
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>result</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>h</span>.<span style=color:#a6e22e>userService</span>.<span style=color:#a6e22e>Create</span>(<span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>Request</span>.<span style=color:#a6e22e>Context</span>(), <span style=color:#a6e22e>user</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>JSON</span>(<span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>StatusInternalServerError</span>, <span style=color:#a6e22e>gin</span>.<span style=color:#a6e22e>H</span>{<span style=color:#e6db74>&#34;error&#34;</span>: <span style=color:#a6e22e>err</span>.<span style=color:#a6e22e>Error</span>()})
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>JSON</span>(<span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>StatusCreated</span>, <span style=color:#a6e22e>result</span>)
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h4 id=2-dependency-injection>2. Dependency Injection</h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#75715e>// cmd/server/main.go</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Configurazione</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>config</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>config</span>.<span style=color:#a6e22e>Load</span>()
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Database</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>db</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>database</span>.<span style=color:#a6e22e>NewConnection</span>(<span style=color:#a6e22e>config</span>.<span style=color:#a6e22e>Database</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Repository</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>userRepo</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>repository</span>.<span style=color:#a6e22e>NewUserRepository</span>(<span style=color:#a6e22e>db</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Service</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>userService</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>service</span>.<span style=color:#a6e22e>NewUserService</span>(<span style=color:#a6e22e>userRepo</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Handler</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>userHandler</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>handler</span>.<span style=color:#a6e22e>NewUserHandler</span>(<span style=color:#a6e22e>userService</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Router</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>router</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>gin</span>.<span style=color:#a6e22e>Default</span>()
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>router</span>.<span style=color:#a6e22e>POST</span>(<span style=color:#e6db74>&#34;/users&#34;</span>, <span style=color:#a6e22e>userHandler</span>.<span style=color:#a6e22e>CreateUser</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>router</span>.<span style=color:#a6e22e>Run</span>(<span style=color:#e6db74>&#34;:8080&#34;</span>)
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=best-practices>Best Practices</h2><h3 id=1-gestione-configurazione>1. Gestione Configurazione</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#75715e>// pkg/config/config.go</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Config</span> <span style=color:#66d9ef>struct</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>Server</span>   <span style=color:#a6e22e>ServerConfig</span>   <span style=color:#e6db74>`mapstructure:&#34;server&#34;`</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>Database</span> <span style=color:#a6e22e>DatabaseConfig</span> <span style=color:#e6db74>`mapstructure:&#34;database&#34;`</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>Redis</span>    <span style=color:#a6e22e>RedisConfig</span>    <span style=color:#e6db74>`mapstructure:&#34;redis&#34;`</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>ServerConfig</span> <span style=color:#66d9ef>struct</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>Port</span>    <span style=color:#66d9ef>string</span> <span style=color:#e6db74>`mapstructure:&#34;port&#34;`</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>Timeout</span> <span style=color:#66d9ef>int</span>    <span style=color:#e6db74>`mapstructure:&#34;timeout&#34;`</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>Load</span>() <span style=color:#f92672>*</span><span style=color:#a6e22e>Config</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>viper</span>.<span style=color:#a6e22e>SetConfigName</span>(<span style=color:#e6db74>&#34;config&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>viper</span>.<span style=color:#a6e22e>SetConfigType</span>(<span style=color:#e6db74>&#34;yaml&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>viper</span>.<span style=color:#a6e22e>AddConfigPath</span>(<span style=color:#e6db74>&#34;.&#34;</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>viper</span>.<span style=color:#a6e22e>ReadInConfig</span>(); <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatal</span>(<span style=color:#e6db74>&#34;Error reading config file&#34;</span>, <span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>config</span> <span style=color:#a6e22e>Config</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>viper</span>.<span style=color:#a6e22e>Unmarshal</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>config</span>); <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatal</span>(<span style=color:#e6db74>&#34;Error unmarshaling config&#34;</span>, <span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>config</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=2-logging-strutturato>2. Logging Strutturato</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#75715e>// pkg/logger/logger.go</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> <span style=color:#e6db74>&#34;go.uber.org/zap&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>NewLogger</span>() <span style=color:#f92672>*</span><span style=color:#a6e22e>zap</span>.<span style=color:#a6e22e>Logger</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>config</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>zap</span>.<span style=color:#a6e22e>NewProductionConfig</span>()
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>config</span>.<span style=color:#a6e22e>OutputPaths</span> = []<span style=color:#66d9ef>string</span>{<span style=color:#e6db74>&#34;stdout&#34;</span>, <span style=color:#e6db74>&#34;logs/app.log&#34;</span>}
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>logger</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>config</span>.<span style=color:#a6e22e>Build</span>()
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatal</span>(<span style=color:#e6db74>&#34;Error creating logger&#34;</span>, <span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>logger</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Utilizzo</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>logger</span>.<span style=color:#a6e22e>Info</span>(<span style=color:#e6db74>&#34;User created successfully&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>zap</span>.<span style=color:#a6e22e>String</span>(<span style=color:#e6db74>&#34;user_id&#34;</span>, <span style=color:#a6e22e>user</span>.<span style=color:#a6e22e>ID</span>),
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>zap</span>.<span style=color:#a6e22e>String</span>(<span style=color:#e6db74>&#34;email&#34;</span>, <span style=color:#a6e22e>user</span>.<span style=color:#a6e22e>Email</span>),
+</span></span><span style=display:flex><span>)
+</span></span></code></pre></div><h3 id=3-middleware-per-observability>3. Middleware per Observability</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#75715e>// internal/middleware/logging.go</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>LoggingMiddleware</span>(<span style=color:#a6e22e>logger</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>zap</span>.<span style=color:#a6e22e>Logger</span>) <span style=color:#a6e22e>gin</span>.<span style=color:#a6e22e>HandlerFunc</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>func</span>(<span style=color:#a6e22e>c</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>gin</span>.<span style=color:#a6e22e>Context</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>start</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Now</span>()
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>Next</span>()
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>duration</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Since</span>(<span style=color:#a6e22e>start</span>)
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>logger</span>.<span style=color:#a6e22e>Info</span>(<span style=color:#e6db74>&#34;Request processed&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>zap</span>.<span style=color:#a6e22e>String</span>(<span style=color:#e6db74>&#34;method&#34;</span>, <span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>Request</span>.<span style=color:#a6e22e>Method</span>),
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>zap</span>.<span style=color:#a6e22e>String</span>(<span style=color:#e6db74>&#34;path&#34;</span>, <span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>Request</span>.<span style=color:#a6e22e>URL</span>.<span style=color:#a6e22e>Path</span>),
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>zap</span>.<span style=color:#a6e22e>Int</span>(<span style=color:#e6db74>&#34;status&#34;</span>, <span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>Writer</span>.<span style=color:#a6e22e>Status</span>()),
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>zap</span>.<span style=color:#a6e22e>Duration</span>(<span style=color:#e6db74>&#34;duration&#34;</span>, <span style=color:#a6e22e>duration</span>),
+</span></span><span style=display:flex><span>        )
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=comunicazione-tra-servizi>Comunicazione tra Servizi</h2><h3 id=1-rest-api>1. REST API</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#75715e>// internal/client/user_client.go</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>UserClient</span> <span style=color:#66d9ef>struct</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>baseURL</span> <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>client</span>  <span style=color:#f92672>*</span><span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>Client</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>c</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>UserClient</span>) <span style=color:#a6e22e>GetUser</span>(<span style=color:#a6e22e>id</span> <span style=color:#66d9ef>string</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>User</span>, <span style=color:#66d9ef>error</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>resp</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>client</span>.<span style=color:#a6e22e>Get</span>(<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Sprintf</span>(<span style=color:#e6db74>&#34;%s/users/%s&#34;</span>, <span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>baseURL</span>, <span style=color:#a6e22e>id</span>))
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>, <span style=color:#a6e22e>err</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>resp</span>.<span style=color:#a6e22e>Body</span>.<span style=color:#a6e22e>Close</span>()
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>user</span> <span style=color:#a6e22e>User</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>json</span>.<span style=color:#a6e22e>NewDecoder</span>(<span style=color:#a6e22e>resp</span>.<span style=color:#a6e22e>Body</span>).<span style=color:#a6e22e>Decode</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>user</span>); <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>, <span style=color:#a6e22e>err</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>user</span>, <span style=color:#66d9ef>nil</span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=2-grpc>2. gRPC</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-protobuf data-lang=protobuf><span style=display:flex><span><span style=color:#75715e>// api/proto/user.proto
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>syntax <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;proto3&#34;</span>;<span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#f92672>package</span> user;<span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>service</span> UserService {<span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>    <span style=color:#66d9ef>rpc</span> GetUser(GetUserRequest) <span style=color:#66d9ef>returns</span> (User);<span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>    <span style=color:#66d9ef>rpc</span> CreateUser(CreateUserRequest) <span style=color:#66d9ef>returns</span> (User);<span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>}<span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>message</span> <span style=color:#a6e22e>User</span> {<span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>    <span style=color:#66d9ef>string</span> id <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;<span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>    <span style=color:#66d9ef>string</span> email <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span>;<span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>    <span style=color:#66d9ef>string</span> name <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span>;<span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>}<span style=color:#960050;background-color:#1e0010>
+</span></span></span></code></pre></div><h2 id=testing>Testing</h2><h3 id=1-unit-tests>1. Unit Tests</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#75715e>// internal/service/user_service_test.go</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>TestUserService_Create</span>(<span style=color:#a6e22e>t</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>testing</span>.<span style=color:#a6e22e>T</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Setup</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>mockRepo</span> <span style=color:#f92672>:=</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>mocks</span>.<span style=color:#a6e22e>UserRepository</span>{}
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>service</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>NewUserService</span>(<span style=color:#a6e22e>mockRepo</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>user</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>domain</span>.<span style=color:#a6e22e>User</span>{
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>Email</span>: <span style=color:#e6db74>&#34;test@example.com&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>Name</span>:  <span style=color:#e6db74>&#34;Test User&#34;</span>,
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>mockRepo</span>.<span style=color:#a6e22e>On</span>(<span style=color:#e6db74>&#34;Create&#34;</span>, <span style=color:#a6e22e>mock</span>.<span style=color:#a6e22e>Anything</span>, <span style=color:#a6e22e>user</span>).<span style=color:#a6e22e>Return</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>user</span>, <span style=color:#66d9ef>nil</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Execute</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>result</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>service</span>.<span style=color:#a6e22e>Create</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Background</span>(), <span style=color:#a6e22e>user</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Assert</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>assert</span>.<span style=color:#a6e22e>NoError</span>(<span style=color:#a6e22e>t</span>, <span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>assert</span>.<span style=color:#a6e22e>Equal</span>(<span style=color:#a6e22e>t</span>, <span style=color:#a6e22e>user</span>.<span style=color:#a6e22e>Email</span>, <span style=color:#a6e22e>result</span>.<span style=color:#a6e22e>Email</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>mockRepo</span>.<span style=color:#a6e22e>AssertExpectations</span>(<span style=color:#a6e22e>t</span>)
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=2-integration-tests>2. Integration Tests</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#75715e>// tests/integration/user_test.go</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>TestUserAPI_CreateUser</span>(<span style=color:#a6e22e>t</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>testing</span>.<span style=color:#a6e22e>T</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Setup test server</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>router</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>setupTestRouter</span>()
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>server</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>httptest</span>.<span style=color:#a6e22e>NewServer</span>(<span style=color:#a6e22e>router</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>server</span>.<span style=color:#a6e22e>Close</span>()
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Test data</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>userData</span> <span style=color:#f92672>:=</span> <span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>interface</span>{}{
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;email&#34;</span>: <span style=color:#e6db74>&#34;test@example.com&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;name&#34;</span>:  <span style=color:#e6db74>&#34;Test User&#34;</span>,
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>jsonData</span>, <span style=color:#a6e22e>_</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>json</span>.<span style=color:#a6e22e>Marshal</span>(<span style=color:#a6e22e>userData</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Execute request</span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>resp</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>Post</span>(<span style=color:#a6e22e>server</span>.<span style=color:#a6e22e>URL</span><span style=color:#f92672>+</span><span style=color:#e6db74>&#34;/users&#34;</span>, <span style=color:#e6db74>&#34;application/json&#34;</span>, <span style=color:#a6e22e>bytes</span>.<span style=color:#a6e22e>NewBuffer</span>(<span style=color:#a6e22e>jsonData</span>))
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>assert</span>.<span style=color:#a6e22e>NoError</span>(<span style=color:#a6e22e>t</span>, <span style=color:#a6e22e>err</span>)
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>assert</span>.<span style=color:#a6e22e>Equal</span>(<span style=color:#a6e22e>t</span>, <span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>StatusCreated</span>, <span style=color:#a6e22e>resp</span>.<span style=color:#a6e22e>StatusCode</span>)
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=deployment-e-containerizzazione>Deployment e Containerizzazione</h2><h3 id=dockerfile>Dockerfile</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-dockerfile data-lang=dockerfile><span style=display:flex><span><span style=color:#75715e># Dockerfile</span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>FROM</span><span style=color:#e6db74> golang:1.21-alpine AS builder</span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>WORKDIR</span><span style=color:#e6db74> /app</span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>COPY</span> go.mod go.sum ./<span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>RUN</span> go mod download<span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>COPY</span> . .<span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>RUN</span> CGO_ENABLED<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span> GOOS<span style=color:#f92672>=</span>linux go build -a -installsuffix cgo -o main ./cmd/server<span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>FROM</span><span style=color:#e6db74> alpine:latest</span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>RUN</span> apk --no-cache add ca-certificates<span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>WORKDIR</span><span style=color:#e6db74> /root/</span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>COPY</span> --from<span style=color:#f92672>=</span>builder /app/main .<span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>COPY</span> --from<span style=color:#f92672>=</span>builder /app/config ./config<span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>EXPOSE</span><span style=color:#e6db74> 8080</span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>CMD</span> [<span style=color:#e6db74>&#34;./main&#34;</span>]<span style=color:#960050;background-color:#1e0010>
+</span></span></span></code></pre></div><h3 id=docker-compose>Docker Compose</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#75715e># docker-compose.yml</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>version</span>: <span style=color:#e6db74>&#39;3.8&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>services</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>user-service</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>build</span>: <span style=color:#ae81ff>.</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ports</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#34;8080:8080&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>DB_HOST=postgres</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>REDIS_HOST=redis</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>depends_on</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>postgres</span>
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>redis</span>
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#f92672>postgres</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>postgres:15</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>POSTGRES_DB</span>: <span style=color:#ae81ff>users</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>POSTGRES_USER</span>: <span style=color:#ae81ff>user</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>POSTGRES_PASSWORD</span>: <span style=color:#ae81ff>password</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>postgres_data:/var/lib/postgresql/data</span>
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#f92672>redis</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>redis:7-alpine</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ports</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#34;6379:6379&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>postgres_data</span>:
+</span></span></code></pre></div><h2 id=monitoring-e-observability>Monitoring e Observability</h2><h3 id=1-health-checks>1. Health Checks</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#75715e>// internal/handler/health.go</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>HealthCheck</span>(<span style=color:#a6e22e>c</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>gin</span>.<span style=color:#a6e22e>Context</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>JSON</span>(<span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>StatusOK</span>, <span style=color:#a6e22e>gin</span>.<span style=color:#a6e22e>H</span>{
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;status&#34;</span>: <span style=color:#e6db74>&#34;healthy&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;timestamp&#34;</span>: <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Now</span>().<span style=color:#a6e22e>Unix</span>(),
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;version&#34;</span>: <span style=color:#e6db74>&#34;1.0.0&#34;</span>,
+</span></span><span style=display:flex><span>    })
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=2-metrics-con-prometheus>2. Metrics con Prometheus</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#75715e>// pkg/metrics/metrics.go</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> <span style=color:#e6db74>&#34;github.com/prometheus/client_golang/prometheus&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> (
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>httpRequestsTotal</span> = <span style=color:#a6e22e>prometheus</span>.<span style=color:#a6e22e>NewCounterVec</span>(
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>prometheus</span>.<span style=color:#a6e22e>CounterOpts</span>{
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>Name</span>: <span style=color:#e6db74>&#34;http_requests_total&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>Help</span>: <span style=color:#e6db74>&#34;Total number of HTTP requests&#34;</span>,
+</span></span><span style=display:flex><span>        },
+</span></span><span style=display:flex><span>        []<span style=color:#66d9ef>string</span>{<span style=color:#e6db74>&#34;method&#34;</span>, <span style=color:#e6db74>&#34;endpoint&#34;</span>, <span style=color:#e6db74>&#34;status&#34;</span>},
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>httpRequestDuration</span> = <span style=color:#a6e22e>prometheus</span>.<span style=color:#a6e22e>NewHistogramVec</span>(
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>prometheus</span>.<span style=color:#a6e22e>HistogramOpts</span>{
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>Name</span>: <span style=color:#e6db74>&#34;http_request_duration_seconds&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>Help</span>: <span style=color:#e6db74>&#34;HTTP request duration in seconds&#34;</span>,
+</span></span><span style=display:flex><span>        },
+</span></span><span style=display:flex><span>        []<span style=color:#66d9ef>string</span>{<span style=color:#e6db74>&#34;method&#34;</span>, <span style=color:#e6db74>&#34;endpoint&#34;</span>},
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>)
+</span></span></code></pre></div><h2 id=conclusione>Conclusione</h2><p>Costruire microservizi in Go richiede attenzione all&rsquo;architettura, testing e observability. Le best practices presentate in questo articolo forniscono una base solida per sviluppare servizi robusti e scalabili.</p><h3 id=punti-chiave>Punti Chiave</h3><ul><li>✅ Utilizza Clean Architecture per separazione delle responsabilità</li><li>✅ Implementa logging strutturato e monitoring</li><li>✅ Scrivi test unitari e di integrazione</li><li>✅ Containerizza con Docker per deployment consistente</li><li>✅ Monitora performance e health dei servizi</li></ul><h3 id=risorse-utili>Risorse Utili</h3><ul><li><a href=https://gobyexample.com/ target=_blank rel=noopener>Go by Example</a></li><li><a href=https://golang.org/doc/effective_go.html target=_blank rel=noopener>Effective Go</a></li><li><a href=https://gowebexamples.com/ target=_blank rel=noopener>Go Web Examples</a></li></ul><hr><p><strong>Tag</strong>: #go #microservices #architecture #backend #best-practices #docker #testing</p></div><div class="row ps-3 pe-3"><div class="col-md-6 share-buttons"></div><div class="col-md-6 btn-improve-page"><a href=https://github.com/amaigit/githubHugoPortfolioWithBlog/edit/main/content/posts/go-microservices.md title="Improve this page" target=_blank rel=noopener><i class="fas fa-code-branch"></i>
+Improve this page</a></div></div><hr><div class="row next-prev-navigator"></div><hr></div></div></div><a id=scroll-to-top class=btn type=button data-bs-toggle=tooltip data-bs-placement=left title="Scroll to top"><i class="fas fa-chevron-circle-up"></i></a></section><section class=toc-section id=toc-section></section></div><footer id=footer class="container-fluid text-center align-content-center footer pb-2"><div class="container pt-5"><div class="row text-start"><div class="col-md-4 col-sm-12"><h5>Navigation</h5></div><div class="col-md-4 col-sm-12"><p>Stay up to date with email notification</p><form method=post action=https://blogtrottr.com><div class=form-group><input type=email class=form-control name=btr_email placeholder="Enter email"><br><input type=hidden name=btr_url value=https://amaigit.github.io/githubHugoPortfolioWithBlog//index.xml>
+<input type=hidden name=schedule_type value=1>
+<small id=emailHelp class="form-text text-muted">By entering your email address, you agree to receive the newsletter of this website.</small>
+<button type=submit class="btn btn-info"> Submit</button></div></form></div></div></div><hr><div class=container><div class="row text-start"><div class=col-md-4><a id=theme href=https://github.com/hugo-toha/toha target=_blank rel=noopener><img src=/githubHugoPortfolioWithBlog/images/theme-logo_hu_b3360284c55cf72d.png alt="Toha Theme Logo">
+Toha</a></div><div class="col-md-4 text-center">© 2025 Copyright.</div><div class="col-md-4 text-end"><a id=hugo href=https://gohugo.io/ target=_blank rel=noopener>Powered by
+<img src=/githubHugoPortfolioWithBlog/images/hugo-logo.svg alt="Hugo Logo" height=18></a></div></div></div></footer><script src=/githubHugoPortfolioWithBlog/application.6bd448faa7d412c73e4646e4080b1601e60b504349a40c7778d3e05c7774047f.js integrity="sha256-a9RI+qfUEsc+RkbkCAsWAeYLUENJpAx3eNPgXHd0BH8=" defer></script></body></html>
