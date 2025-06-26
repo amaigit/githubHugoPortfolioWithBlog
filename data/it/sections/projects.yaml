@@ -1,0 +1,32 @@
+section:
+  name: Progetti
+  id: projects
+  enable: true
+  weight: 4
+  showOnNavbar: true
+  template: sections/projects.html
+projects:
+  - name: "E-Commerce Platform"
+    image: "/img/projects/ecommerce-preview.png"
+    tech: ["React", "Node.js", "PostgreSQL", "Redis", "Docker"]
+    summary: >-
+      Piattaforma e-commerce completa con gestione prodotti, carrello, pagamenti e dashboard admin. Architettura moderna e scalabile.
+    buttons:
+      - name: Live Demo
+        icon: "fas fa-desktop"
+        url: "https://ecommerce-demo.amaigit.dev"
+      - name: GitHub
+        icon: "fab fa-github"
+        url: "https://github.com/amaigit/ecommerce-platform"
+      - name: Documentazione API
+        icon: "fas fa-code"
+        url: "https://api.ecommerce-demo.amaigit.dev/docs"
+  - name: "CLI Tool"
+    image: ""
+    tech: ["Go", "Cobra"]
+    summary: >-
+      Strumento a riga di comando per automatizzare task di sviluppo e deployment.
+    buttons:
+      - name: GitHub
+        icon: "fab fa-github"
+        url: "https://github.com/amaigit/cli-tool" 

@@ -1,0 +1,23 @@
+section:
+  name: Chi Sono
+  id: about
+  enable: true
+  weight: 1
+  showOnNavbar: true
+  template: sections/about.html
+designation: Sviluppatore Software Full-Stack
+company:
+  name: ""
+  url: ""
+summary: >-
+  Sviluppatore appassionato di tecnologie moderne e soluzioni innovative. Con anni di esperienza nello sviluppo web e mobile, mi dedico alla creazione di applicazioni performanti e user-friendly.
+socialLinks:
+  - name: Github
+    icon: "fab fa-github"
+    url: "https://github.com/amaigit"
+  - name: LinkedIn
+    icon: "fab fa-linkedin"
+    url: "https://linkedin.com/in/andrea-morosati"
+  - name: Twitter
+    icon: "fab fa-twitter"
+    url: "https://twitter.com/andreamorosati" 
