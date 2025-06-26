@@ -29,11 +29,19 @@ jobs:
           hugo-version: 'latest'
           extended: true # Installa la versione Extended, necessaria per Toha
 
-      # Step 3: Compila il sito ottimizzando i file
+      # Step 3: Inizializza moduli Hugo
+      - name: Initialize Hugo Modules
+        run: hugo mod init githubHugoPortfolioWithBlog
+
+      # Step 4: Scarica moduli Hugo
+      - name: Get Hugo Modules
+        run: hugo mod get
+
+      # Step 5: Compila il sito ottimizzando i file
       - name: Build
         run: hugo --minify
 
-      # Step 4: Pubblica i file compilati su GitHub Pages
+      # Step 6: Pubblica i file compilati su GitHub Pages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:

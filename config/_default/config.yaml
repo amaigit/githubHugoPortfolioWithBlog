@@ -1,7 +1,7 @@
 baseURL: "https://amaigit.github.io/githubHugoPortfolioWithBlog/"
 languageCode: "it-it"
 title: "Portfolio di Andrea Morosati"
-theme: "toha"
+theme: ["github.com/hugo-toha/toha/v4"]
 
 # Configurazione autore e informazioni personali
 params:
