@@ -1,7 +1,11 @@
 {{ $skills := .skills | default .section.skills }}
+{{ with .section }}
+  <h2 class="section-title">{{ .name | default "Competenze" }}</h2>
+{{ else }}
+  <h2 class="section-title">Competenze</h2>
+{{ end }}
 <section id="skills" class="section section-skills">
   <div class="container">
-    <h2 class="section-title">{{ .section.name | default .name | default "Competenze" }}</h2>
     <div class="row">
       {{ range $skills }}
       <div class="col-md-6 col-lg-4 mb-4">

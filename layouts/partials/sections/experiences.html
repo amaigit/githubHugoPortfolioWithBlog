@@ -1,7 +1,11 @@
 {{ $experiences := .experiences | default .section.experiences }}
+{{ with .section }}
+  <h2 class="section-title">{{ .name | default "Esperienze" }}</h2>
+{{ else }}
+  <h2 class="section-title">Esperienze</h2>
+{{ end }}
 <section id="experiences" class="section section-experiences">
   <div class="container">
-    <h2 class="section-title">{{ .section.name | default .name | default "Esperienze" }}</h2>
     <div class="row">
       {{ range $experiences }}
         {{ if .role }}

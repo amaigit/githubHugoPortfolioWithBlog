@@ -1,7 +1,11 @@
 {{ $notes := .notes | default .section.notes }}
+{{ with .section }}
+  <h2 class="section-title">{{ .name | default "Note" }}</h2>
+{{ else }}
+  <h2 class="section-title">Note</h2>
+{{ end }}
 <section id="notes" class="section section-notes">
   <div class="container">
-    <h2 class="section-title">{{ .section.name | default .name | default "Note" }}</h2>
     <div class="row">
       {{ range $notes }}
       <div class="col-md-6 col-lg-4 mb-4">

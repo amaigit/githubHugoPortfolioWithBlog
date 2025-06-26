@@ -1,7 +1,11 @@
 {{ $projects := .projects | default .section.projects }}
+{{ with .section }}
+  <h2 class="section-title">{{ .name | default "Progetti" }}</h2>
+{{ else }}
+  <h2 class="section-title">Progetti</h2>
+{{ end }}
 <section id="projects" class="section section-projects">
   <div class="container">
-    <h2 class="section-title">{{ .section.name | default .name | default "Progetti" }}</h2>
     <div class="row">
       {{ range $projects }}
       <div class="col-md-6 col-lg-4 mb-4">
